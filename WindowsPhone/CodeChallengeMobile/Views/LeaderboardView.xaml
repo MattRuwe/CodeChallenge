@@ -1,0 +1,125 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="OmahaMTG.CodeChallengeMobile.Views.LeaderboardView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:localObjects="clr-namespace:OmahaMTG.CodeChallengeMobile.Objects"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <localObjects:NumberToStringConverter x:Key="NumberToStringConverter" />
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <!--<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Style="{StaticResource PhoneTextNormalStyle}">
+                <Run>Omaha</Run><Run Foreground="Orange">MTG</Run> 
+                <Run>&#160;Code Challenge</Run>
+            </TextBlock>
+            <TextBlock x:Name="PageTitle" Text="leaderboard" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>-->
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <controls:Pivot x:Name="pivLeaderboard" Title="LEADERBOARD"  
+                            LoadedPivotItem="pivLeaderboard_LoadedPivotItem" 
+                            Loaded="pivLeaderboard_Loaded">
+                <controls:Pivot.TitleTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="ApplicationTitle" Style="{StaticResource PhoneTextNormalStyle}">
+                                <Run>Omaha</Run><Run Foreground="Orange">MTG</Run> 
+                                <Run>&#160;Code Challenge</Run>
+                            </TextBlock>
+                            <TextBlock Text="{Binding}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </controls:Pivot.TitleTemplate>
+                <controls:Pivot.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding ChallengeName}" />
+                    </DataTemplate>
+                </controls:Pivot.HeaderTemplate>
+                <controls:Pivot.ItemTemplate>
+                    <DataTemplate>
+                        <ScrollViewer>
+                            <ItemsControl x:Name="icLeaderboard" Grid.Row="1">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="5" Margin="5" Padding="5" HorizontalAlignment="Center" Width="200" BorderBrush="White" BorderThickness="2">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1, 0.5">
+                                                    <GradientStop Color="#FFE2AC" Offset="0" />
+                                                    <GradientStop Color="#FFA500" Offset="0.25" />
+                                                    <GradientStop Color="#FFA500" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="20" />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding Position}" Foreground="#C700008B" FontSize="40" FontWeight="ExtraBold" Margin="5">
+                                                    
+                                                </TextBlock>
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Text="{Binding Username}" Margin="0 0 15 0" Foreground="DarkBlue" />
+                                                    <TextBlock Text="{Binding FinalScore, Converter={StaticResource NumberToStringConverter}}" Foreground="DarkBlue" />
+                                                </StackPanel>
+                                            </Grid>
+
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </DataTemplate>
+                </controls:Pivot.ItemTemplate>
+                <!--<controls:PivotItem Header="item1">
+                    <Grid/>
+                </controls:PivotItem>
+                <controls:PivotItem Header="item2">
+                    <Grid/>
+                </controls:PivotItem>-->
+            </controls:Pivot>
+        </Grid>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="btnRefresh" IconUri="/Images/appbar.refresh.rest.png" 
+                                            Text="Refresh"
+                                            Click="btnRefresh_Click"/>
+            <!--<shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>-->
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

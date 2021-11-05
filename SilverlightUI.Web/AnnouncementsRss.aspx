@@ -1,0 +1,1 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="AnnouncementsRss.aspx.vb" Inherits="SilverlightUI.AnnouncementsRss" %>

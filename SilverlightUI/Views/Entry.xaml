@@ -1,0 +1,95 @@
+﻿<navigation:Page 
+  x:Class="SilverlightUI.Entry" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"  
+  Style="{StaticResource PageStyle}" 
+    xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" 
+    xmlns:my="clr-namespace:SilverlightUI" 
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:my1="clr-namespace:SilverlightUI.Controls">
+
+    <Grid x:Name="LayoutRoot">
+        <my1:BusyIndicator IsBusy="{Binding Mode=OneWay, ElementName=CodeChallenge_EntryDomainDataSource, Path=IsBusy}">
+            <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
+
+                <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
+
+                    <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" 
+                           Text="{Binding Path=ApplicationStrings.CodeChallengeEntryPageTitle, Source={StaticResource ResourceWrapper}}"/>
+
+                    <!--<TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" 
+                           Text="Add Your Entry"/>-->
+
+                    <riaControls:DomainDataSource 
+                        AutoLoad="True" 
+                        Name="CodeChallenge_EntryDomainDataSource" 
+                        QueryName="GetEntry_Challenge_UserQuery">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <my:CodeChallengeDomainContext />
+                        </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.SortDescriptors>
+                            <riaControls:SortDescriptor Direction="Descending" PropertyPath="DateAdded" />
+                        </riaControls:DomainDataSource.SortDescriptors>
+                    </riaControls:DomainDataSource>
+
+                    <StackPanel Orientation="Horizontal">
+                        <HyperlinkButton x:Name="hlbAddEntry" Content="Add Entry" />
+                        <Border Width="20" />
+                        <HyperlinkButton x:Name="hlbRefresh">
+                            <HyperlinkButton.Content>
+                                <Image Source="/SilverlightUI;component/Assets/Images/btn_refresh_bg.png" Width="20" />
+                            </HyperlinkButton.Content>
+                        </HyperlinkButton>
+                        
+                    </StackPanel>
+                    <sdk:DataGrid AutoGenerateColumns="False" 
+                              ItemsSource="{Binding ElementName=CodeChallenge_EntryDomainDataSource, Path=Data}"
+                              Name="CodeChallenge_EntryDataGrid" 
+                              RowDetailsVisibilityMode="VisibleWhenSelected"
+                              IsReadOnly="True">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn Binding="{Binding Path=UserName}" Header="Username" />
+                            <sdk:DataGridTextColumn x:Name="AssemblyFullNameColumn" Binding="{Binding Path=AssemblyFullName}" Header="Assembly Full Name" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="TypeNameColumn" Binding="{Binding Path=TypeName}" Header="Type Name" Width="SizeToHeader" />
+                            <!--<sdk:DataGridTextColumn x:Name="AuthorUserIdColumn" Binding="{Binding Path=AuthorUserId}" Header="Author User Id" Width="SizeToHeader" />-->
+                            <sdk:DataGridTextColumn x:Name="CodeChallengeNameColumn" Binding="{Binding Path=ChallengeName}" Header="Code Challenge" Width="SizeToHeader" />
+                            <sdk:DataGridTemplateColumn x:Name="DateAddedColumn" Header="Date Added" Width="SizeToHeader">
+                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <sdk:DatePicker SelectedDate="{Binding Path=DateAdded, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=DateAdded, StringFormat=\{0:d\}}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn x:Name="DateRanColumn" Header="Date Ran" Width="SizeToHeader">
+                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <sdk:DatePicker SelectedDate="{Binding Path=DateRan, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=DateRan, StringFormat=\{0:d\}}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTextColumn x:Name="FinalScoreColumn" Binding="{Binding Path=FinalScore}" Header="Final Score" Width="SizeToHeader" />
+                            <!--<sdk:DataGridTextColumn x:Name="IdColumn" Binding="{Binding Path=id, Mode=OneWay}" Header="Id" IsReadOnly="True" Width="SizeToHeader" />-->
+                            <sdk:DataGridTextColumn x:Name="TotalExecutionTimeColumn" Binding="{Binding Path=TotalExecutionTime}" Header="Total Execution Time" Width="SizeToHeader" />
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+
+                </StackPanel>
+
+            </ScrollViewer>
+        </my1:BusyIndicator>
+    </Grid>
+
+</navigation:Page>

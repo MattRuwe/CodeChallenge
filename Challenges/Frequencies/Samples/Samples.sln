@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CS", "CS", "{9F1916A6-5A0A-476D-A50F-80FE3754C656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VB", "VB", "{9AFA897A-CAA8-48D7-B5EE-191A6333910A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrequenciesImplementationCS", "CS\FrequenciesImplementationCS.csproj", "{13BA915A-40C6-4830-8E34-1473CF711805}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FrequenciesImplementationVB", "VB\FrequenciesImplementationVB.vbproj", "{06583053-8F34-4802-BFBB-2FF41BF7EAAE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs01.discountasp.net/tfs/omahamtg
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CS\\FrequenciesImplementationCS.csproj
+		SccProjectTopLevelParentUniqueName1 = Samples.sln
+		SccProjectName1 = CS
+		SccLocalPath1 = CS
+		SccProjectUniqueName2 = VB\\FrequenciesImplementationVB.vbproj
+		SccProjectTopLevelParentUniqueName2 = Samples.sln
+		SccProjectName2 = VB
+		SccLocalPath2 = VB
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13BA915A-40C6-4830-8E34-1473CF711805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BA915A-40C6-4830-8E34-1473CF711805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BA915A-40C6-4830-8E34-1473CF711805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BA915A-40C6-4830-8E34-1473CF711805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06583053-8F34-4802-BFBB-2FF41BF7EAAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06583053-8F34-4802-BFBB-2FF41BF7EAAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06583053-8F34-4802-BFBB-2FF41BF7EAAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06583053-8F34-4802-BFBB-2FF41BF7EAAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13BA915A-40C6-4830-8E34-1473CF711805} = {9F1916A6-5A0A-476D-A50F-80FE3754C656}
+		{06583053-8F34-4802-BFBB-2FF41BF7EAAE} = {9AFA897A-CAA8-48D7-B5EE-191A6333910A}
+	EndGlobalSection
+EndGlobal

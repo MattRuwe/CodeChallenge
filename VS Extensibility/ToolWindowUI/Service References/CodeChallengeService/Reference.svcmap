@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="95fb71cc-ee5d-43c2-822d-015c0a61a09b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SilverlightUI-CodeChallengeDomainService1.disco" MetadataType="Disco" ID="dee70df5-a7a6-4850-8784-ee86dd11f9ba" SourceId="1" SourceUrl="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?disco" />
+    <MetadataFile FileName="SilverlightUI-CodeChallengeDomainService5.xsd" MetadataType="Schema" ID="b6e0315d-bac1-4e1f-8b3a-488acf277027" SourceId="1" SourceUrl="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SilverlightUI-CodeChallengeDomainService51.xsd" MetadataType="Schema" ID="2638112c-04e6-426b-8cdc-834436526cd7" SourceId="1" SourceUrl="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SilverlightUI-CodeChallengeDomainService52.xsd" MetadataType="Schema" ID="18cca029-3a7a-4af2-a3c5-ab8d3a7a7d39" SourceId="1" SourceUrl="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SilverlightUI-CodeChallengeDomainService53.xsd" MetadataType="Schema" ID="a102c759-5326-4bc6-9075-4db18cc3d720" SourceId="1" SourceUrl="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CodeChallengeDomainService1.wsdl" MetadataType="Wsdl" ID="c0081d25-0dfa-4e46-9c64-4cd9b4ee1c44" SourceId="1" SourceUrl="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?wsdl" />
+    <MetadataFile FileName="SilverlightUI-CodeChallengeDomainService54.xsd" MetadataType="Schema" ID="27c55c35-763e-415f-aef2-e2ff276e085d" SourceId="1" SourceUrl="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

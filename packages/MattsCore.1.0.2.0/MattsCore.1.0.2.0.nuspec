@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MattsCore</id>
+    <version>1.0.2.0</version>
+    <title>MattsCore</title>
+    <authors>Matt Ruwe</authors>
+    <owners>Matt Ruwe</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Contains commonly used functionality for Matt Ruwe's projects</description>
+    <releaseNotes />
+    <copyright>Copyright Matt Ruwe 2013</copyright>
+    <dependencies>
+      <dependency id="Unity.Interception" version="2.1.505.2" />
+    </dependencies>
+    <references>
+      <reference file="Core.dll" />
+    </references>
+  </metadata>
+</package>

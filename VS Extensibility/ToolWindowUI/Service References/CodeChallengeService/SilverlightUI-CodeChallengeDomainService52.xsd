@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:38033/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd3" namespace="DomainServices" />
+  <xs:element name="GetAssemblyFullname">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="assemblyBytes" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssemblyFullnameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAssemblyFullnameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIChallengeImplementations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="assemblyBytes" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIChallengeImplementationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIChallengeImplementationsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codeChallengeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="DomainServices" minOccurs="0" name="GetResultsResult" nillable="true" type="q1:QueryResultOfResultsListing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestEntries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="count" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestEntriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="DomainServices" minOccurs="0" name="GetLatestEntriesResult" nillable="true" type="q2:QueryResultOfEntryListing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallengeSecure">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallengeSecureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="DomainServices" minOccurs="0" name="GetCodeChallengeSecureResult" nillable="true" type="q3:QueryResultOfvw_codechallenge_secure" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallengesSecure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="onlyActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallengesSecureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="DomainServices" minOccurs="0" name="GetCodeChallengesSecureResult" nillable="true" type="q4:QueryResultOfCodeChallengeListing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenges">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallengesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="DomainServices" minOccurs="0" name="GetCodeChallengesResult" nillable="true" type="q5:QueryResultOfCodeChallenge" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallengesWithDeveloperAssemblies">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallengesWithDeveloperAssembliesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="DomainServices" minOccurs="0" name="GetCodeChallengesWithDeveloperAssembliesResult" nillable="true" type="q6:QueryResultOfvw_codechallenge_secure" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_Assembly">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_AssemblyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="DomainServices" minOccurs="0" name="GetCodeChallenge_AssemblyResult" nillable="true" type="q7:QueryResultOfCodeChallenge_Assembly" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_DeveloperAssembly">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_DeveloperAssemblyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="DomainServices" minOccurs="0" name="GetCodeChallenge_DeveloperAssemblyResult" nillable="true" type="q8:QueryResultOfCodeChallenge_DeveloperAssembly" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RerunEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="entryId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RerunEntryResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurgeEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="entryId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurgeEntryResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntry_Challenge_User">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntry_Challenge_UserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="DomainServices" minOccurs="0" name="GetEntry_Challenge_UserResult" nillable="true" type="q9:QueryResultOfvw_codechallenge_entry_challenge_user" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_Entry">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_EntryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="DomainServices" minOccurs="0" name="GetCodeChallenge_EntryResult" nillable="true" type="q10:QueryResultOfCodeChallenge_Entry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaderBoardResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="challengeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaderBoardResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="DomainServices" minOccurs="0" name="GetLeaderBoardResultsResult" nillable="true" type="q11:QueryResultOfResultsListing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_Entry_Result">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_Entry_ResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="DomainServices" minOccurs="0" name="GetCodeChallenge_Entry_ResultResult" nillable="true" type="q12:QueryResultOfCodeChallenge_Entry_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_Sponsor">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_SponsorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="DomainServices" minOccurs="0" name="GetCodeChallenge_SponsorResult" nillable="true" type="q13:QueryResultOfCodeChallenge_Sponsor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_Announcement">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_AnnouncementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="DomainServices" minOccurs="0" name="GetCodeChallenge_AnnouncementResult" nillable="true" type="q14:QueryResultOfCodeChallenge_Announcement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_Config">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeChallenge_ConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="DomainServices" minOccurs="0" name="GetCodeChallenge_ConfigResult" nillable="true" type="q15:QueryResultOfCodeChallenge_Config" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChallengeStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="challengeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChallengeStatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="DomainServices" minOccurs="0" name="GetChallengeStatsResult" nillable="true" type="q16:QueryResultOfChallengeStatistics" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitChanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="DomainServices" minOccurs="0" name="changeSet" nillable="true" type="q17:ArrayOfChangeSetEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitChangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="DomainServices" minOccurs="0" name="SubmitChangesResult" nillable="true" type="q18:ArrayOfChangeSetEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

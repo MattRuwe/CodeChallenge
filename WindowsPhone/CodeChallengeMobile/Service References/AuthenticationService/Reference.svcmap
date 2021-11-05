@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ba4be56c-b1e2-4d3f-8b4a-cb372631b726" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AuthenticationService.wsdl" MetadataType="Wsdl" ID="cf3c8b5b-643f-4907-806c-7d90eb16b467" SourceId="1" SourceUrl="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc?wsdl" />
+    <MetadataFile FileName="SilverlightUI-Web-AuthenticationService.xsd" MetadataType="Schema" ID="f647d02b-f49a-4d23-a0b2-a47374df339f" SourceId="1" SourceUrl="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SilverlightUI-Web-AuthenticationService1.xsd" MetadataType="Schema" ID="a88f470e-6d20-4038-9df2-2e5980ef7326" SourceId="1" SourceUrl="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SilverlightUI-Web-AuthenticationService2.xsd" MetadataType="Schema" ID="c60b3d97-ca3f-414b-aeca-61ddc91c1cea" SourceId="1" SourceUrl="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SilverlightUI-Web-AuthenticationService3.xsd" MetadataType="Schema" ID="364b7a2f-5419-423b-add9-e6fc5d0fe4bc" SourceId="1" SourceUrl="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SilverlightUI-Web-AuthenticationService.disco" MetadataType="Disco" ID="59e0f06d-29d2-441b-bbd6-12e310b66886" SourceId="1" SourceUrl="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc?disco" />
+    <MetadataFile FileName="SilverlightUI-Web-AuthenticationService4.xsd" MetadataType="Schema" ID="a5067f78-7748-4d1a-9675-c06840b024cd" SourceId="1" SourceUrl="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

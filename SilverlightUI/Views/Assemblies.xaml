@@ -1,0 +1,55 @@
+﻿<navigation:Page x:Class="SilverlightUI.Assemblies" 
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 mc:Ignorable="d"
+                 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 d:DesignWidth="640" d:DesignHeight="480"
+                 Title="Assemblies Page" 
+                 xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" 
+                 xmlns:my="clr-namespace:SilverlightUI" 
+                 xmlns:myControls="clr-namespace:SilverlightUI.Controls"
+                 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <myControls:BusyIndicator IsBusy="{Binding ElementName=CodeChallenge_AssemblyDomainDataSource, Path=IsBusy}">
+        <Grid x:Name="LayoutRoot">
+            <riaControls:DomainDataSource 
+            AutoLoad="True" 
+            Name="CodeChallenge_AssemblyDomainDataSource" 
+            QueryName="GetCodeChallenge_AssemblyQuery">
+                <riaControls:DomainDataSource.DomainContext>
+                    <my:CodeChallengeDomainContext />
+                </riaControls:DomainDataSource.DomainContext>
+            </riaControls:DomainDataSource>
+            <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
+
+                <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" 
+                           Text="{Binding Path=ApplicationStrings.AssembliesPageTitle, Source={StaticResource ResourceWrapper}}"/>
+                <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" 
+                           Text="Assemblies"/>
+                <HyperlinkButton x:Name="hlbAddAssembly" Content="Add" />
+                <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
+
+                    <sdk:DataGrid AutoGenerateColumns="False" 
+                              ItemsSource="{Binding ElementName=CodeChallenge_AssemblyDomainDataSource, Path=Data}" 
+                              Name="CodeChallenge_AssemblyDataGrid" 
+                              RowDetailsVisibilityMode="VisibleWhenSelected"
+                              KeyDown="CodeChallenge_AssemblyDataGrid_KeyDown">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="AssemblyFullNameColumn" Binding="{Binding Path=AssemblyFullName}" Header="Assembly Full Name" Width="SizeToHeader" />
+                            <sdk:DataGridCheckBoxColumn x:Name="TrustedColumn" Binding="{Binding Path=Trusted}" Header="Trusted" Width="SizeToHeader" />
+                            <sdk:DataGridTemplateColumn>
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <HyperlinkButton Content="Delete" Click="GridDelete_Click" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </ScrollViewer>
+            </StackPanel>
+        </Grid>
+    </myControls:BusyIndicator>
+</navigation:Page>
+

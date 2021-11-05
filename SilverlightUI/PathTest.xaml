@@ -1,0 +1,27 @@
+﻿<sdk:Page	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d"
+            xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"	
+            xmlns:local="clr-namespace:SilverlightUI"
+            x:Class="SilverlightUI.PathTest" 
+            Title="PathTest Page"
+            d:DesignWidth="640" d:DesignHeight="480"
+            xmlns:controls="clr-namespace:SilverlightUI.Controls">
+
+    <Grid x:Name="LayoutRoot">
+        <StackPanel>
+            <controls:HelpBox>
+                <StackPanel>
+                    <TextBlock Text="The help Text" />
+                    <TextBlock Text="The help Text2" />
+                    <TextBlock Text="The help Text3" />
+                    <TextBlock Text="The help Text4" />
+                    <TextBlock Text="The help Text5" />
+                </StackPanel>
+            </controls:HelpBox>
+            <TextBlock Text="This is additional text that should appear UNDER the help text" />
+        </StackPanel>
+    </Grid>
+</sdk:Page>

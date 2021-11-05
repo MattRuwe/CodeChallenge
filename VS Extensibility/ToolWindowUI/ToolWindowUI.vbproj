@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{134987CD-20C2-492E-985E-CABF19464FED}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OmahaMTG.Challenge.VsExtensibility.ToolWindowUI</RootNamespace>
+    <AssemblyName>OmahaMTG.Challenge.VsExtensibility.ToolWindowUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <MyType>Custom</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>OmahaMTG.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC\EnvDTE\8.0.0.0__b03f5f7f11d50a3a\EnvDTE.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC\EnvDTE80\8.0.0.0__b03f5f7f11d50a3a\envdte80.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\VSLangProj.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ChallengeManager\ImplementationChallenge.vb">
+      <Link>Objects\ImplementationChallenge.vb</Link>
+    </Compile>
+    <Compile Include="..\..\SilverlightUI\Helpers\BooleanToVisibilityConverter.vb">
+      <Link>Converter\BooleanToVisibilityConverter.vb</Link>
+    </Compile>
+    <Compile Include="..\..\SilverlightUI\Helpers\BytesToMemoryUsageValueConverter.vb">
+      <Link>Converter\BytesToMemoryUsageValueConverter.vb</Link>
+    </Compile>
+    <Compile Include="..\..\SilverlightUI\Helpers\NullToVisbilityValueConverter.vb">
+      <Link>Converter\NullToVisbilityValueConverter.vb</Link>
+    </Compile>
+    <Compile Include="..\..\SilverlightUI\Helpers\SecondsToTimeValueConverter.vb">
+      <Link>Converter\SecondsToTimeValueConverter.vb</Link>
+    </Compile>
+    <Compile Include="..\..\SilverlightUI\Helpers\StringToVisibilityValueConverter.vb">
+      <Link>Converter\StringToVisibilityValueConverter.vb</Link>
+    </Compile>
+    <Compile Include="Controls\BindablePasswordBox.vb" />
+    <Compile Include="Converter\SelectedTabToActiveTabConverter.vb" />
+    <Compile Include="Enums\ActiveTab.vb" />
+    <Compile Include="Objects\ChallengeCodeGen.vb" />
+    <Compile Include="Objects\ChallengeManager.vb" />
+    <Compile Include="Objects\LoginContext.vb" />
+    <Compile Include="SimpleDelegateCommand.vb" />
+    <Compile Include="ViewModels\ChallengesViewModel.vb" />
+    <Compile Include="ViewModels\CodeChallengeViewModel.vb" />
+    <Compile Include="ViewModels\LeaderboardViewModel.vb" />
+    <Compile Include="ViewModels\MyEntriesViewModel.vb" />
+    <Compile Include="ViewModels\ViewModelBase.vb" />
+    <Compile Include="Views\Challenges.xaml.vb">
+      <DependentUpon>Challenges.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodeChallengeControl.xaml.vb">
+      <DependentUpon>CodeChallengeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AuthenticationService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CodeChallengeService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Leaderboard.xaml.vb">
+      <DependentUpon>Leaderboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyEntries.xaml.vb">
+      <DependentUpon>MyEntries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewSolutionDialog.xaml.vb">
+      <DependentUpon>NewSolutionDialog.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWpfExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <AppDesigner Include="My Project\" />
+    <None Include="OmahaMTG.snk" />
+    <None Include="packages.config" />
+    <None Include="Service References\AuthenticationService\AuthenticationService1.wsdl" />
+    <None Include="Service References\AuthenticationService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.AuthenticationService.ChangeSetEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AuthenticationService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.AuthenticationService.QueryResultOfUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AuthenticationService\SilverlightUI-Web-AuthenticationService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthenticationService\SilverlightUI-Web-AuthenticationService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthenticationService\SilverlightUI-Web-AuthenticationService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthenticationService\SilverlightUI-Web-AuthenticationService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthenticationService\SilverlightUI-Web-AuthenticationService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CodeChallengeService\CodeChallengeDomainService1.wsdl" />
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.ChangeSetEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfChallengeStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallengeListing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge_Announcement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge_Assembly.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge_Config.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge_DeveloperAssembly.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge_Entry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge_Entry_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfCodeChallenge_Sponsor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfEntryListing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfResultsListing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfvw_codechallenge_entry_challenge_user.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.CodeChallengeService.QueryResultOfvw_codechallenge_secure.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeChallengeService\SilverlightUI-CodeChallengeDomainService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CodeChallengeService\SilverlightUI-CodeChallengeDomainService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CodeChallengeService\SilverlightUI-CodeChallengeDomainService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CodeChallengeService\SilverlightUI-CodeChallengeDomainService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CodeChallengeService\SilverlightUI-CodeChallengeDomainService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AuthenticationService\" />
+    <WCFMetadataStorage Include="Service References\CodeChallengeService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthenticationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthenticationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CodeChallengeService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CodeChallengeService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CodeChallengeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Challenges.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeChallengeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Leaderboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MyEntries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewSolutionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ChallengeCommon\ChallengeCommon.vbproj">
+      <Project>{9CA26B48-810D-45F4-9D56-E4AAC2F278FF}</Project>
+      <Name>ChallengeCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CodeChallengeService\SilverlightUI-CodeChallengeDomainService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthenticationService\SilverlightUI-Web-AuthenticationService1.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>

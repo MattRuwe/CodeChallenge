@@ -1,0 +1,428 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:my1="clr-namespace:SilverlightUI.Controls"
+                 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 xmlns:web="clr-namespace:SilverlightUI.Web"
+                 xmlns:local="clr-namespace:SilverlightUI"
+                 xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices"
+                 xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" 
+                 xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                 xmlns:telerikFormatter="clr-namespace:Telerik.Windows.Documents.FormatProviders.Xaml;assembly=Telerik.Windows.Documents.FormatProviders.Xaml"
+                 xmlns:telerikHtmlFormatter="clr-namespace:Telerik.Windows.Documents.FormatProviders.Html;assembly=Telerik.Windows.Documents.FormatProviders.Html"
+                 xmlns:toolTipControls="clr-namespace:Silverlight.Controls.ToolTips;assembly=Silverlight.Controls.ToolTips"
+                 x:Class="SilverlightUI.Home"
+                 mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
+
+    <navigation:Page.Resources>
+        <local:CodeChallengeDomainContext x:Key="DomainContext"/>
+        <local:StringToVisibilityValueConverter x:Key="StringToVisibilityValueConverter" />
+        <local:UtcDateTimeToLocalValueConverter x:Key="UtcDateTimeToLocalValueConverter" />
+        <Storyboard x:Name="Startup">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="TitleBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="TitleBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="LatestEntriesBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-300"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-300"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="AnnouncementsBorder">
+                <EasingDoubleKeyFrame x:Name="AnnouncementsStartingKeyFrame" KeyTime="0:0:0.7" Value="2000"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </navigation:Page.Resources>
+
+
+    <navigation:Page.Style>
+        <StaticResource ResourceKey="PageStyle"/>
+    </navigation:Page.Style>
+
+
+    <Grid x:Name="LayoutRoot">
+        <vsm:VisualStateManager.VisualStateGroups>
+            <vsm:VisualStateGroup x:Name="LoginStates">
+                <vsm:VisualState x:Name="loggedOut">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="hlbAddEntry" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00.0000000">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </vsm:VisualState>
+
+                <vsm:VisualState x:Name="loggedInNormal">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="hlbAddEntry" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00.0000000">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </vsm:VisualState>
+                <vsm:VisualState x:Name="loggedInAdmin">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="hlbAddEntry" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00.0000000">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </vsm:VisualState>
+            </vsm:VisualStateGroup>
+        </vsm:VisualStateManager.VisualStateGroups>
+
+        <riaControls:DomainDataSource 
+            AutoLoad="True"
+            Name="CodeChallenge_AnnouncementDomainDataSource" 
+            QueryName="GetCodeChallenge_AnnouncementQuery"
+            DomainContext="{StaticResource DomainContext}"
+            LoadSize="10"
+            PageSize="10">
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor PropertyPath="PostingDate" Direction="Descending" />
+            </riaControls:DomainDataSource.SortDescriptors>
+        </riaControls:DomainDataSource>
+
+        <riaControls:DomainDataSource 
+                    x:Name="ddsLatestEntries" 
+                    QueryName="GetLatestEntriesQuery"
+                    AutoLoad="True"
+                    DomainContext="{StaticResource DomainContext}"
+                    RefreshInterval="120">
+            <riaControls:DomainDataSource.QueryParameters>
+                <riaControls:Parameter ParameterName="count" Value="5" />
+            </riaControls:DomainDataSource.QueryParameters>
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor Direction="Descending" PropertyPath="DateAdded" />
+            </riaControls:DomainDataSource.SortDescriptors>
+        </riaControls:DomainDataSource>
+
+        <riaControls:DomainDataSource 
+                        AutoLoad="False" 
+                        Name="CodeChallenge_EntryDomainDataSource" 
+                        QueryName="GetEntry_Challenge_UserQuery"
+                        DomainContext="{StaticResource DomainContext}">
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor Direction="Descending" PropertyPath="DateAdded" />
+            </riaControls:DomainDataSource.SortDescriptors>
+        </riaControls:DomainDataSource>
+
+        <riaControls:DomainDataSource 
+                        x:Name="ddsCodeChallenges" 
+                        QueryName="GetCodeChallengesSecureQuery"
+                        AutoLoad="True"
+                        DomainContext="{StaticResource DomainContext}">
+            <riaControls:DomainDataSource.QueryParameters>
+                <riaControls:Parameter ParameterName="onlyActive" Value="True" />
+            </riaControls:DomainDataSource.QueryParameters>
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor PropertyPath="ChallengeName" Direction="Ascending" />
+            </riaControls:DomainDataSource.SortDescriptors>
+        </riaControls:DomainDataSource>
+
+        <riaControls:DomainDataSource 
+                    x:Name="ddsEntries" 
+                    QueryName="GetLeaderBoardResultsQuery"
+                    AutoLoad="True"
+                    DomainContext="{StaticResource DomainContext}">
+            <riaControls:DomainDataSource.QueryParameters>
+                <riaControls:Parameter ParameterName="challengeID" Value="{Binding SelectedItem.id, ElementName=cbCodeChallenges}" />
+            </riaControls:DomainDataSource.QueryParameters>
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor PropertyPath="Position" Direction="Ascending" />
+            </riaControls:DomainDataSource.SortDescriptors>
+        </riaControls:DomainDataSource>
+
+        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" HorizontalScrollBarVisibility="Disabled">
+
+            <Grid Margin="12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" x:Name="TitleBorder" Style="{StaticResource GroupBoxBorder}" RenderTransformOrigin="0.5,0.5">
+                    <Border.RenderTransform>
+                        <CompositeTransform x:Name="TitleBorderTransform" ScaleX="0" ScaleY="0"/>
+                    </Border.RenderTransform>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" TextWrapping="Wrap">
+                            <Run FontWeight="Bold" Foreground="#FFC760" FontSize="24" Text="Welcome to the "/><Run Text=" "/>
+                            <Run FontWeight="Bold" Foreground="Gray" FontSize="24" Text="Omaha"/>
+                            <Run FontWeight="Bold" Foreground="Orange" FontSize="24" Text="MTG"/><Run Text=" "/>
+                            <Run FontWeight="Bold" Foreground="#FFC760" FontSize="24" Text=" code challenge"/>
+                            <Run Text=" "/><LineBreak /><Run Text=" "/><LineBreak />
+                            <Run Text=" Where coders use their skills to show off their programming prowess, tune their analytical aptitude, and procure prizes!"/></TextBlock>
+                        </StackPanel>
+                        <HyperlinkButton x:Name="hlCreateAChallenge" Content="Screencast: How to create/submit a challenge" NavigateUri="http://www.youtube.com/watch?v=QL_Jh5Ge4aI" TargetName="_new" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Border x:Name="LatestEntriesBorder" Style="{StaticResource GroupBoxBorder}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="0,10,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Border.RenderTransform>
+                            <CompositeTransform x:Name="LatestEntriesBorderTransform" TranslateX="-300"/>
+                        </Border.RenderTransform>
+                        <my1:BusyIndicator IsBusy="{Binding IsBusy, ElementName=ddsLatestEntries, Mode=OneWay}">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0">
+                                    <HyperlinkButton x:Name="hlbRefreshLatestEntries" Margin="0,5,0,0">
+                                        <HyperlinkButton.Content>
+                                            <Image Source="/SilverlightUI;component/Assets/Images/btn_refresh_bg.png" Width="20" />
+                                        </HyperlinkButton.Content>
+                                    </HyperlinkButton>
+                                    <TextBlock Text="Latest Entries:" Style="{StaticResource HeaderTextStyle}" Margin="10,5,0,10" />
+                                    <HyperlinkButton x:Name="hlbAddEntry" Content="Add Entry" Margin="10,5,0,0" Visibility="Collapsed" />
+                                </StackPanel>
+                                <ListBox x:Name="LatestEntries" BorderThickness="0" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Style="{StaticResource ListboxRepeaterStyle}"
+                                 ItemsSource="{Binding Data, ElementName=ddsLatestEntries}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border CornerRadius="5" BorderBrush="Orange" BorderThickness="2" Padding="5" Margin="0,3,0,0" Background="#FFC760" Width="250">
+                                                <Border.Effect>
+                                                    <DropShadowEffect />
+                                                </Border.Effect>
+                                                <StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Username: " />
+                                                        <TextBlock Text="{Binding AuthorUsername}" FontWeight="Bold"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Challenge: " />
+                                                        <TextBlock Text="{Binding ChallengeName}" FontWeight="Bold"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Final Score: " FontSize="16" />
+                                                        <TextBlock Text="{Binding FinalScore, StringFormat=\{0:n0\}}" FontSize="16" FontWeight="Bold" />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </my1:BusyIndicator>
+                    </Border>
+
+                    <Border x:Name="LeaderboardBorder" Style="{StaticResource GroupBoxBorder}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="20,10,0,0" MinHeight="200">
+                        <my1:BusyIndicator IsBusy="{Binding IsBusy, ElementName=ddsEntries, Mode=OneWay}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition x:Name="LeaderBoardGridRow" />
+                                </Grid.RowDefinitions>
+
+                                <StackPanel>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <HyperlinkButton x:Name="hlbRefreshLeadboard" Margin="0,5,0,0">
+                                            <HyperlinkButton.Content>
+                                                <Image Source="/SilverlightUI;component/Assets/Images/btn_refresh_bg.png" Width="20" />
+                                            </HyperlinkButton.Content>
+                                        </HyperlinkButton>
+                                        <TextBlock Text="Leaderboard:" Style="{StaticResource HeaderTextStyle}"  Margin="10,5,0,10"  />
+                                        <ComboBox x:Name="cbCodeChallenges" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="top" Margin="5" ItemsSource="{Binding Data, ElementName=ddsCodeChallenges}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding ChallengeName}" Visibility="{Binding SponsorName, Converter={StaticResource StringToVisibilityValueConverter}, ConverterParameter=True}" />
+                                                        <StackPanel Orientation="Horizontal" Visibility="{Binding SponsorName, Converter={StaticResource StringToVisibilityValueConverter}, ConverterParameter=False}">
+                                                            <TextBlock Text="*" />
+                                                            <TextBlock Text="{Binding ChallengeName}" FontWeight="Bold"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <HyperlinkButton x:Name="btnShowChallengeStats" Click="btnShowChallengeStats_Click" HorizontalAlignment="Center" Margin="0,3,0,3">
+                                        <HyperlinkButton.Content>
+                                            <TextBlock Text="Statistics" FontWeight="Bold" />
+                                        </HyperlinkButton.Content>
+                                    </HyperlinkButton>
+                                    <StackPanel Orientation="Horizontal"
+                                            Visibility="{Binding SelectedItem.SponsorName, ElementName=cbCodeChallenges, Converter={StaticResource StringToVisibilityValueConverter}}">
+                                        <TextBlock Text="Sponsored By:" Margin="0 0 5 0" />
+                                        <TextBlock Text="{Binding SelectedItem.SponsorName, ElementName=cbCodeChallenges}" FontWeight="Bold" Foreground="#FFA500" />
+                                    </StackPanel>
+                                </StackPanel>
+
+
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <ScrollViewer x:Name="LeaderboardScrollView" BorderThickness="0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                                        <ListBox x:Name="Leaderboard" BorderThickness="0" HorizontalAlignment="Center"
+                                                 ItemsSource="{Binding Data, ElementName=ddsEntries}" Style="{StaticResource ListboxRepeaterStyle}">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Margin="0,3,0,0">
+                                                        <Border x:Name="brdLeaderBoard" CornerRadius="5" BorderBrush="Orange" 
+                                                    BorderThickness="2" Padding="5"  Background="#FFC760" Width="250">
+                                                            <Border.Effect>
+                                                                <DropShadowEffect />
+                                                            </Border.Effect>
+                                                            <StackPanel>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="Username: " />
+                                                                    <TextBlock Text="{Binding Username}" FontWeight="Bold"/>
+                                                                </StackPanel>
+
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="Challenge: " />
+                                                                    <TextBlock Text="{Binding CodeChallengeName}" FontWeight="Bold"/>
+                                                                </StackPanel>
+
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="Final Score: " FontSize="16" />
+                                                                    <TextBlock Text="{Binding FinalScore, StringFormat=\{0:n0\}}" FontSize="16" FontWeight="Bold" />
+                                                                </StackPanel>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <TextBlock Text="{Binding Position}" FontSize="36" FontWeight="ExtraBold" FontFamily="Courier New" Margin="30,-56,0,0" Opacity=".5" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Grid>
+                        </my1:BusyIndicator>
+                    </Border>
+
+                    <Border x:Name="AnnouncementsBorder" Style="{StaticResource GroupBoxBorder}" Grid.Row="0" Grid.Column="2" Margin="20, 10, 0,0" RenderTransformOrigin="0.5,0.5">
+                        <Border.RenderTransform>
+                            <CompositeTransform x:Name="AnnouncementsTranslate" TranslateX="2000"/>
+                        </Border.RenderTransform>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <TextBlock Text="Announcements" FontSize="16" FontWeight="Bold"/>
+                                <my1:HelpBox Margin="10,0,0,0">
+                                    <TextBlock Style="{StaticResource HelpTextStyle}" Text="Find the latest news for the Code Challenge." />
+                                </my1:HelpBox>
+
+
+
+                                <HyperlinkButton x:Name="hlbAnnouncementsRss" TargetName="_blank">
+                                    <Image Source="/SilverlightUI;component/Assets/Images/rss_icon.png" Height="20" Margin="10,0,0,0">
+                                        <toolTipControls:ToolTipService.ToolTip>
+                                            <toolTipControls:ToolTip x:Name="tooltipControl"
+                                                              Style="{StaticResource ToolTipStyle}"
+                                                              InitialDelay="0:00:00"
+                                                              DisplayTime="0:02:00">
+                                                <toolTipControls:ToolTip.CloseAnimation>
+                                                    <Storyboard Duration="00:00:01">
+                                                        <DoubleAnimation From="1"
+                                                         To="0"
+                                                         Storyboard.TargetName="tooltipControl"
+                                                         Storyboard.TargetProperty="Opacity" />
+                                                    </Storyboard>
+                                                </toolTipControls:ToolTip.CloseAnimation>
+                                                <toolTipControls:ToolTip.OpenAnimation>
+                                                    <Storyboard Duration="00:00:01">
+                                                        <DoubleAnimation From="0"
+                                                         To="1"
+                                                         Storyboard.TargetName="tooltipControl"
+                                                         Storyboard.TargetProperty="Opacity" />
+                                                    </Storyboard>
+                                                </toolTipControls:ToolTip.OpenAnimation>
+                                                <toolTipControls:ToolTip.Content>
+                                                    <TextBlock Style="{StaticResource HelpTextStyle}"
+                                                           Text="Keep up-to-date with the latest code challenge announcements using your favorite RSS reader." />
+                                                </toolTipControls:ToolTip.Content>
+                                            </toolTipControls:ToolTip>
+                                        </toolTipControls:ToolTipService.ToolTip>
+                                    </Image>
+                                </HyperlinkButton>
+                            </StackPanel>
+
+                            <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" BorderBrush="Transparent">
+                                <ItemsControl ItemsSource="{Binding ElementName=CodeChallenge_AnnouncementDomainDataSource, Path=Data}" BorderBrush="Transparent">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <Border Style="{StaticResource AnnouncementDateBorderStyle}">
+                                                    <TextBlock Text="{Binding PostingDate, StringFormat=f, Converter={StaticResource UtcDateTimeToLocalValueConverter}}" Style="{StaticResource AnnouncementDateStyle}" />
+                                                </Border>
+                                                <Border Style="{StaticResource AnnouncementSeparatorStyle}" />
+                                                <telerik:RadRichTextBox x:Name="rtbAnnouncement" IsReadOnly="True" IsSpellCheckingEnabled="False" BorderThickness="0" BorderBrush="Transparent" 
+                                                            Margin="20,3,50,3">
+                                                    <telerik:RadRichTextBox.Resources>
+                                                        <!--<telerikFormatter:XamlDataProvider x:Key="provider" RichTextBox="{Binding ElementName=rtbAnnouncement}" Xaml="{Binding Announcement}" />-->
+                                                        <telerikHtmlFormatter:HtmlDataProvider 
+                                                                x:Key="provider2"
+                                                                RichTextBox="{Binding ElementName=rtbAnnouncement}" 
+                                                                Html="{Binding AnnouncementHtml}" />
+                                                    </telerik:RadRichTextBox.Resources>
+                                                </telerik:RadRichTextBox>
+
+                                            </StackPanel>
+
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+
+            </Grid>
+
+        </ScrollViewer>
+    </Grid>
+
+</navigation:Page>

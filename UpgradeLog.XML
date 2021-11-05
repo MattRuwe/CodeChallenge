@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="CodeChallenge">
+</Property><Property Name="Solution File" Value="C:\Development\OmahaMTG2\Development\Tools\CodeChallenge\CodeChallenge.sln">
+</Property><Property Name="Date" Value="Thursday, May 13, 2010">
+</Property><Property Name="Time" Value="9:25 AM">
+</Property></Properties><Event ErrorLevel="0" Project="ChallegeExecutor" Source="ChallegeExecutor\ChallegeExecutor.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ChallegeExecutor" Source="ChallegeExecutor\ChallegeExecutor.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddNumbersChallenge" Source="Challenges\AddNumbersChallenge\AddNumbersChallenge.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="AddNumbersChallenge" Source="Challenges\AddNumbersChallenge\AddNumbersChallenge.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ChallengeCommon" Source="ChallengeCommon\ChallengeCommon.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ChallengeCommon" Source="ChallengeCommon\ChallengeCommon.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddNumberImplementation" Source="Challenge Samples\AddNumberImplementation\AddNumberImplementation.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="AddNumberImplementation" Source="Challenge Samples\AddNumberImplementation\AddNumberImplementation.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ChallengeConsole" Source="ChallengeConsole\ChallengeConsole.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ChallengeConsole" Source="ChallengeConsole\ChallengeConsole.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="CodeChallenge.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="CodeChallenge.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddNumbersChallenge" Source="Challenges\AddNumbersChallenge\AddNumbersChallenge.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="AddNumberImplementation" Source="Challenge Samples\AddNumberImplementation\AddNumberImplementation.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ChallegeExecutor" Source="ChallegeExecutor\ChallegeExecutor.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ChallengeCommon" Source="ChallengeCommon\ChallengeCommon.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ChallengeConsole" Source="ChallengeConsole\ChallengeConsole.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

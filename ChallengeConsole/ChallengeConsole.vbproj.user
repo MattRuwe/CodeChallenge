@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory />
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <FullDeploy>true</FullDeploy>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>host "C:\Development\OmahaMTG\Development\Tools\CodeChallenge\Challenges\WordSearch\WordSearchImplementation\bin\Debug\WordSearchImplementation.dll" "OmahaMTG.Challenge.WordSearchImplementation.WordSearchImplementation" xml</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>host client "E:\Development\OmahaMTG\Development\Tools\CodeChallenge\UntrustedExecution\SolitaireCS.dll" "SolitaireCS.SolitaireImplementation" True</StartArguments>
+  </PropertyGroup>
+</Project>

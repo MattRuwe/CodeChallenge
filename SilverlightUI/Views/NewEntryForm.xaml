@@ -1,0 +1,88 @@
+﻿<controls:ChildWindow x:Class="SilverlightUI.NewEntryForm"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                      Title="Challenge Entry" mc:Ignorable="d" 
+                      xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" 
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                      xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                      xmlns:my="clr-namespace:SilverlightUI" 
+                      xmlns:my1="clr-namespace:SilverlightUI.Controls"
+                      MinWidth="600" 
+                      Style="{StaticResource StandardWindow}">
+    <controls:ChildWindow.Resources>
+        <my:NotOperatorValueConverter x:Key="NotOperatorValueConverter" />
+        <my:IsPublishedToIsTestValueConverter x:Key="IsPublishedToIsTestValueConverter" />
+    </controls:ChildWindow.Resources>
+    <my1:BusyIndicator x:Name="BusyIndicator" MinWidth="600">
+        <Grid x:Name="LayoutRoot" Margin="2">
+            <Grid.Resources>
+                <my:AssemblyFullNameToNameValueConverter x:Key="AssemblyFullNameToNameValueConverter" />
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Name="Grid1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <HyperlinkButton Grid.Row="0" Grid.Column="0" Margin="1,6,6,6" x:Name="hlbUploadEntry">
+                    <HyperlinkButton.Content>
+                        <TextBlock Text="UploadEntry" Style="{StaticResource FieldLabelStyle}" Foreground="Blue" TextDecorations="Underline" />
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Assembly Full Name:" Style="{StaticResource FieldLabelStyle}" />
+                <TextBlock x:Name="tbAssemblyFullName" Grid.Column="1" Grid.Row="1" Margin="3" Text="{Binding AssemblyFullName, Converter={StaticResource AssemblyFullNameToNameValueConverter}}" />
+
+                <TextBlock Text="Challenge Name:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="3,10,3,10" VerticalAlignment="Center" Style="{StaticResource FieldLabelStyle}" />
+                <TextBlock x:Name="tbChallengeName" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Type Name:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" Style="{StaticResource FieldLabelStyle}" />
+                <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Margin="3" Name="tbTypeName" Text="{Binding Path=TypeName, TargetNullValue=''}"/>
+
+                <TextBlock Text="Publish to Leaderboard:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" Style="{StaticResource FieldLabelStyle}" />
+                <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+                    <CheckBox Margin="5,5,12,5" IsChecked="{Binding IsPublished, Mode=TwoWay}" x:Name="chkIsPublished" />
+                    <my1:HelpBox Margin="0,5,0,5">
+                        <TextBlock Style="{StaticResource HelpTextStyle}" Text="Select this option if you want your entry to be posted to the Leaderboard.  If you don't select it, your entry will remain private and will not be shown on the leaderboard or the latest entries.  To check your results, you'll need to go to the &quot;My Entry Results&quot; tab." />
+                    </my1:HelpBox>
+                    <TextBlock Text="Unpublished entries are automatically removed after 30 days." Margin="10,7,0,0" FontWeight="Bold" />
+                </StackPanel>
+
+                <TextBlock Text="Run entry as test:" Grid.Row="5" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                    <CheckBox Margin="5,5,12,5" IsChecked="{Binding IsTest, Mode=TwoWay}" Name="chkIsTest" />
+                    <my1:HelpBox Margin="0,5,0,5">
+                        <TextBlock Style="{StaticResource HelpTextStyle}" Text="Select this option if you want your entry to run in test mode, which will give you diagnostic information about your run in the results view.  However, your score will be unpublished and your entry will run against test data.  Please note that not all challenges support test mode.  Please see the challenge documentation or contact the administrator for more information." />
+                    </my1:HelpBox>
+                </StackPanel>
+                
+                <TextBlock x:Name="tbMessage" Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center" FontWeight="Bold" />
+            </Grid>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="OKButton" Content="OK" VerticalAlignment="Center" Margin="0,12,6,12" Width="53" IsEnabled="False"/>
+                <Button x:Name="CancelButton" Content="Cancel" Margin="6,12,0,12" Width="53"/>
+            </StackPanel>
+        </Grid>
+    </my1:BusyIndicator>
+</controls:ChildWindow>

@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="Challenges"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModels="clr-namespace:OmahaMTG.Challenge.VsExtensibility.ToolWindowUI.ViewModels"
+             xmlns:toolWindow="clr-namespace:OmahaMTG.Challenge.VsExtensibility.ToolWindowUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <viewModels:ChallengesViewModel x:Key="ChallengesViewModel" />
+        <toolWindow:SecondsToTimeValueConverter x:Key="SecondsToTimeValueConverter" />
+        <toolWindow:BytesToMemoryUsageValueConverter x:Key="BytesToMemoryUsageValueConverter" />
+        <toolWindow:StringToVisibilityValueConverter x:Key="StringToVisibilityValueConverter" />
+        <toolWindow:NullToVisbilityValueConverter x:Key="NullToVisbilityValueConverter" />
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource ChallengesViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <ComboBox x:Name="cbChallengeDetails" Grid.Row="0" 
+                  ItemsSource="{Binding ChallengesWithDetails}"
+                  SelectedItem="{Binding SelectedChallenge, Mode=TwoWay}" 
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left"
+                  MinWidth="150"
+                  Margin="10 10 0 10">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding ChallengeName}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Grid.Row="2" 
+                    Grid.ColumnSpan="2" 
+                    Content="Create New Project"
+                    HorizontalAlignment="Right"
+                    Margin="10"
+                    Command="{Binding CreateNewProjectCommand, Source={StaticResource ChallengesViewModel}}"
+                    CommandParameter="{Binding ElementName=cbChallengeDetails, Path=SelectedItem}"
+                    Visibility="{Binding ElementName=cbChallengeDetails, Path=SelectedItem, Converter={StaticResource NullToVisbilityValueConverter}}"/>
+        </Grid>
+
+        <Border Grid.Row="1" CornerRadius="10" BorderBrush="Orange" BorderThickness="2" Margin="5" Background="White">
+            <Border.Effect>
+                <DropShadowEffect />
+            </Border.Effect>
+            <Grid 
+              DataContext="{Binding ElementName=cbChallengeDetails, Path=SelectedItem}" 
+              VerticalAlignment="Top">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="5" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Sponsor:" Visibility="{Binding SponsorName, Converter={StaticResource StringToVisibilityValueConverter}}" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SponsorName}" Visibility="{Binding SponsorName, Converter={StaticResource StringToVisibilityValueConverter}}" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Challenge Name:" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ChallengeName}" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Maximum Running Time:" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MaximumRunningSeconds, Converter={StaticResource SecondsToTimeValueConverter}}" />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Maximum Memory Usage:" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding MaximumMemoryUsageBytes, Converter={StaticResource BytesToMemoryUsageValueConverter}}" />
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

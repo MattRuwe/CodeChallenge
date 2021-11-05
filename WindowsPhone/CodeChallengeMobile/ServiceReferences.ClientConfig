@@ -1,0 +1,26 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_CodeChallengeDomainServicesoap"
+                    maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_AuthenticationServicesoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc/soap"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_CodeChallengeDomainServicesoap"
+                contract="CodeChallengeService.CodeChallengeDomainServicesoap"
+                name="BasicHttpBinding_CodeChallengeDomainServicesoap" />
+            <endpoint address="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-Web-AuthenticationService.svc/soap"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AuthenticationServicesoap"
+                contract="AuthenticationService.AuthenticationServicesoap"
+                name="BasicHttpBinding_AuthenticationServicesoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

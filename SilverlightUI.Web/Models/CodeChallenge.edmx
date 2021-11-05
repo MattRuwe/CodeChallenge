@@ -1,0 +1,1007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CodeChallenge.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CodeChallengeStoreContainer">
+          <EntitySet Name="aspnet_Membership" EntityType="CodeChallenge.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="aspnet_Users" EntityType="CodeChallenge.Store.aspnet_Users" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge" EntityType="CodeChallenge.Store.CodeChallenge" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Announcement" EntityType="CodeChallenge.Store.CodeChallenge_Announcement" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Assembly" EntityType="CodeChallenge.Store.CodeChallenge_Assembly" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Config" EntityType="CodeChallenge.Store.CodeChallenge_Config" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_DeveloperAssembly" EntityType="CodeChallenge.Store.CodeChallenge_DeveloperAssembly" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Entry" EntityType="CodeChallenge.Store.CodeChallenge_Entry" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Entry_Result" EntityType="CodeChallenge.Store.CodeChallenge_Entry_Result" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Sponsor" EntityType="CodeChallenge.Store.CodeChallenge_Sponsor" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="vw_codechallenge_entry_challenge_user" EntityType="CodeChallenge.Store.vw_codechallenge_entry_challenge_user" store:Type="Views" store:Schema="dbo" store:Name="vw_codechallenge_entry_challenge_user" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [vw_codechallenge_entry_challenge_user].[ChallengeName] AS [ChallengeName], 
+      [vw_codechallenge_entry_challenge_user].[StartDate] AS [StartDate], 
+      [vw_codechallenge_entry_challenge_user].[EndDate] AS [EndDate], 
+      [vw_codechallenge_entry_challenge_user].[Instructions] AS [Instructions], 
+      [vw_codechallenge_entry_challenge_user].[MaximumRunningSeconds] AS [MaximumRunningSeconds], 
+      [vw_codechallenge_entry_challenge_user].[MaximumMemoryUsageBytes] AS [MaximumMemoryUsageBytes], 
+      [vw_codechallenge_entry_challenge_user].[id] AS [id], 
+      [vw_codechallenge_entry_challenge_user].[CodeChallenge_Id] AS [CodeChallenge_Id], 
+      [vw_codechallenge_entry_challenge_user].[AuthorUserId] AS [AuthorUserId], 
+      [vw_codechallenge_entry_challenge_user].[AssemblyFullName] AS [AssemblyFullName], 
+      [vw_codechallenge_entry_challenge_user].[DateAdded] AS [DateAdded], 
+      [vw_codechallenge_entry_challenge_user].[DateRan] AS [DateRan], 
+      [vw_codechallenge_entry_challenge_user].[TotalExecutionTime] AS [TotalExecutionTime], 
+      [vw_codechallenge_entry_challenge_user].[FinalScore] AS [FinalScore], 
+      [vw_codechallenge_entry_challenge_user].[UserName] AS [UserName], 
+      [vw_codechallenge_entry_challenge_user].[UserId] AS [UserId], 
+      [vw_codechallenge_entry_challenge_user].[TypeName] AS [TypeName], 
+      [vw_codechallenge_entry_challenge_user].[ExecutorAssemblyFullName] AS [ExecutorAssemblyFullName], 
+      [vw_codechallenge_entry_challenge_user].[ExecutionCommonAssemblyFullName] AS [ExecutionCommonAssemblyFullName], 
+      [vw_codechallenge_entry_challenge_user].[Expr1] AS [Expr1], 
+      [vw_codechallenge_entry_challenge_user].[DocumentationFilename] AS [DocumentationFilename], 
+      [vw_codechallenge_entry_challenge_user].[SampleProjectFilename] AS [SampleProjectFilename], 
+      [vw_codechallenge_entry_challenge_user].[IsHidden] AS [IsHidden]
+      FROM [dbo].[vw_codechallenge_entry_challenge_user] AS [vw_codechallenge_entry_challenge_user]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_codechallenge_secure" EntityType="CodeChallenge.Store.vw_codechallenge_secure" store:Type="Views" store:Schema="dbo" store:Name="vw_codechallenge_secure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [vw_codechallenge_secure].[id] AS [id], 
+      [vw_codechallenge_secure].[ChallengeName] AS [ChallengeName], 
+      [vw_codechallenge_secure].[StartDate] AS [StartDate], 
+      [vw_codechallenge_secure].[EndDate] AS [EndDate], 
+      [vw_codechallenge_secure].[Instructions] AS [Instructions], 
+      [vw_codechallenge_secure].[ExecutorAssemblyFullName] AS [ExecutorAssemblyFullName], 
+      [vw_codechallenge_secure].[ExecutionCommonAssemblyFullName] AS [ExecutionCommonAssemblyFullName], 
+      [vw_codechallenge_secure].[MaximumRunningSeconds] AS [MaximumRunningSeconds], 
+      [vw_codechallenge_secure].[MaximumMemoryUsageBytes] AS [MaximumMemoryUsageBytes], 
+      [vw_codechallenge_secure].[SampleProjectFilename] AS [SampleProjectFilename], 
+      [vw_codechallenge_secure].[DocumentationFilename] AS [DocumentationFilename], 
+      [vw_codechallenge_secure].[SponsorName] AS [SponsorName], 
+      [vw_codechallenge_secure].[SponsorDescription] AS [SponsorDescription], 
+      [vw_codechallenge_secure].[SampleDownloads] AS [SampleDownloads], 
+      [vw_codechallenge_secure].[DocumentationDownloads] AS [DocumentationDownloads], 
+      [vw_codechallenge_secure].[IsHidden] AS [IsHidden]
+      FROM [dbo].[vw_codechallenge_secure] AS [vw_codechallenge_secure]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__7E37BEF6" Association="CodeChallenge.Store.FK__aspnet_Me__UserI__7E37BEF6">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_CodeChallenge_Sponsor" Association="CodeChallenge.Store.FK_CodeChallenge_CodeChallenge_Sponsor">
+            <End Role="CodeChallenge_Sponsor" EntitySet="CodeChallenge_Sponsor" />
+            <End Role="CodeChallenge" EntitySet="CodeChallenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge" Association="CodeChallenge.Store.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge">
+            <End Role="CodeChallenge" EntitySet="CodeChallenge" />
+            <End Role="CodeChallenge_DeveloperAssembly" EntitySet="CodeChallenge_DeveloperAssembly" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_Entry_CodeChallenge" Association="CodeChallenge.Store.FK_CodeChallenge_Entry_CodeChallenge">
+            <End Role="CodeChallenge" EntitySet="CodeChallenge" />
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" Association="CodeChallenge.Store.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+            <End Role="CodeChallenge_Entry_Result" EntitySet="CodeChallenge_Entry_Result" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ChallengeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="SampleProjectFilename" Type="varchar" MaxLength="128" />
+          <Property Name="SampleProject" Type="varbinary(max)" />
+          <Property Name="DocumentationFilename" Type="varchar" MaxLength="128" />
+          <Property Name="Documentation" Type="varbinary(max)" />
+          <Property Name="Instructions" Type="ntext" />
+          <Property Name="ExecutorAssembly" Type="varbinary(max)" />
+          <Property Name="ExecutorAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="ExecutionCommonAssembly" Type="varbinary(max)" />
+          <Property Name="ExecutionCommonAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="MaximumRunningSeconds" Type="int" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="numeric" Nullable="false" />
+          <Property Name="CodeChallenge_Sponsor_id" Type="int" />
+          <Property Name="SampleDownloads" Type="int" />
+          <Property Name="DocumentationDownloads" Type="int" />
+          <Property Name="IsHidden" Type="bit" />
+          <Property Name="TotalEntries" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="PostingDate" Type="datetime2" Nullable="false" />
+          <Property Name="AnnouncementHtml" Type="text" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Assembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="assembly" Type="varbinary(max)" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Trusted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LastServiceHeartbeat" Type="datetime2" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_DeveloperAssembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="codechallenge_id" Type="int" Nullable="false" />
+          <Property Name="assembly_fullname" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="assembly" Type="varbinary(max)" Nullable="false" />
+          <Property Name="NumberOfDownloads" Type="int" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CodeChallenge_Id" Type="int" Nullable="false" />
+          <Property Name="AuthorUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Submission" Type="varbinary(max)" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="DateAdded" Type="datetime2" Nullable="false" />
+          <Property Name="DateRan" Type="datetime2" />
+          <Property Name="TotalExecutionTime" Type="int" />
+          <Property Name="FinalScore" Type="bigint" />
+          <Property Name="ExecutionDetails" Type="text" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="IsTest" Type="bit" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry_Result">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="codechallenge_entry_id" Type="int" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="error" Type="text" />
+          <Property Name="successful" Type="bit" Nullable="false" />
+          <Property Name="result_message" Type="text" Nullable="false" />
+          <Property Name="score" Type="bigint" Nullable="false" />
+          <Property Name="author_note" Type="text" />
+          <Property Name="cpu_cycles" Type="numeric" Precision="21" />
+          <Property Name="test_result_data" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Sponsor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Description" Type="text" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OmahaMTGDev.dbo.vw_codechallenge_entry_challenge_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_codechallenge_entry_challenge_user">
+          <Key>
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="MaximumRunningSeconds" />
+            <PropertyRef Name="MaximumMemoryUsageBytes" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="CodeChallenge_Id" />
+            <PropertyRef Name="AuthorUserId" />
+            <PropertyRef Name="AssemblyFullName" />
+            <PropertyRef Name="DateAdded" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="TypeName" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="ChallengeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Instructions" Type="ntext" />
+          <Property Name="MaximumRunningSeconds" Type="int" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="numeric" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="CodeChallenge_Id" Type="int" Nullable="false" />
+          <Property Name="AuthorUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="DateAdded" Type="datetime2" Nullable="false" />
+          <Property Name="DateRan" Type="datetime2" />
+          <Property Name="TotalExecutionTime" Type="int" />
+          <Property Name="FinalScore" Type="bigint" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="ExecutorAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="ExecutionCommonAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="DocumentationFilename" Type="varchar" MaxLength="128" />
+          <Property Name="SampleProjectFilename" Type="varchar" MaxLength="128" />
+          <Property Name="IsHidden" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OmahaMTGDev.dbo.vw_codechallenge_secure' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_codechallenge_secure">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ChallengeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Instructions" Type="ntext" />
+          <Property Name="ExecutorAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="ExecutionCommonAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="MaximumRunningSeconds" Type="int" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="numeric" Nullable="false" />
+          <Property Name="SampleProjectFilename" Type="varchar" MaxLength="128" />
+          <Property Name="DocumentationFilename" Type="varchar" MaxLength="128" />
+          <Property Name="SponsorName" Type="varchar" MaxLength="250" />
+          <Property Name="SponsorDescription" Type="text" />
+          <Property Name="SampleDownloads" Type="int" />
+          <Property Name="DocumentationDownloads" Type="int" />
+          <Property Name="IsHidden" Type="bit" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__7E37BEF6">
+          <End Role="aspnet_Users" Type="CodeChallenge.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="CodeChallenge.Store.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_CodeChallenge_Sponsor">
+          <End Role="CodeChallenge_Sponsor" Type="CodeChallenge.Store.CodeChallenge_Sponsor" Multiplicity="0..1" />
+          <End Role="CodeChallenge" Type="CodeChallenge.Store.CodeChallenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Sponsor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge">
+              <PropertyRef Name="CodeChallenge_Sponsor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge">
+          <End Role="CodeChallenge" Type="CodeChallenge.Store.CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_DeveloperAssembly" Type="CodeChallenge.Store.CodeChallenge_DeveloperAssembly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_DeveloperAssembly">
+              <PropertyRef Name="codechallenge_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_Entry_CodeChallenge">
+          <End Role="CodeChallenge" Type="CodeChallenge.Store.CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry" Type="CodeChallenge.Store.CodeChallenge_Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry">
+              <PropertyRef Name="CodeChallenge_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+          <End Role="CodeChallenge_Entry" Type="CodeChallenge.Store.CodeChallenge_Entry" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry_Result" Type="CodeChallenge.Store.CodeChallenge_Entry_Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Entry">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry_Result">
+              <PropertyRef Name="codechallenge_entry_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CodeChallenge" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CodeChallengeModel" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="CodeChallenges" EntityType="CodeChallenge.CodeChallenge" />
+          <EntitySet Name="CodeChallenge_Entry" EntityType="CodeChallenge.CodeChallenge_Entry" />
+          <EntitySet Name="CodeChallenge_Entry_Result" EntityType="CodeChallenge.CodeChallenge_Entry_Result" />
+          <AssociationSet Name="FK_CodeChallenge_Entry_CodeChallenge" Association="CodeChallenge.FK_CodeChallenge_Entry_CodeChallenge">
+            <End Role="CodeChallenge" EntitySet="CodeChallenges" />
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" Association="CodeChallenge.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+            <End Role="CodeChallenge_Entry_Result" EntitySet="CodeChallenge_Entry_Result" />
+          </AssociationSet>
+          <EntitySet Name="CodeChallenge_DeveloperAssembly" EntityType="CodeChallenge.CodeChallenge_DeveloperAssembly" />
+          <AssociationSet Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge1" Association="CodeChallenge.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge1">
+            <End Role="CodeChallenge" EntitySet="CodeChallenges" />
+            <End Role="CodeChallenge_DeveloperAssembly" EntitySet="CodeChallenge_DeveloperAssembly" />
+          </AssociationSet>
+          <EntitySet Name="CodeChallenge_Assembly" EntityType="CodeChallenge.CodeChallenge_Assembly" />
+          <EntitySet Name="aspnet_Membership" EntityType="CodeChallenge.aspnet_Membership" />
+          <EntitySet Name="aspnet_Users" EntityType="CodeChallenge.aspnet_Users" />
+          <AssociationSet Name="FK__aspnet_Me__UserI__7E37BEF6" Association="CodeChallenge.FK__aspnet_Me__UserI__7E37BEF6">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="CodeChallenge_Entryaspnet_Users" Association="CodeChallenge.CodeChallenge_Entryaspnet_Users">
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <EntitySet Name="vw_codechallenge_entry_challenge_user" EntityType="CodeChallenge.vw_codechallenge_entry_challenge_user" />
+          <EntitySet Name="vw_codechallenge_secure" EntityType="CodeChallenge.vw_codechallenge_secure" />
+          <AssociationSet Name="vw_codechallenge_secureCodeChallenge_DeveloperAssembly" Association="CodeChallenge.vw_codechallenge_secureCodeChallenge_DeveloperAssembly">
+            <End Role="vw_codechallenge_secure" EntitySet="vw_codechallenge_secure" />
+            <End Role="CodeChallenge_DeveloperAssembly" EntitySet="CodeChallenge_DeveloperAssembly" />
+          </AssociationSet>
+          <AssociationSet Name="vw_codechallenge_secureCodeChallenge_Entry" Association="CodeChallenge.vw_codechallenge_secureCodeChallenge_Entry">
+            <End Role="vw_codechallenge_secure" EntitySet="vw_codechallenge_secure" />
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+          </AssociationSet>
+          <EntitySet Name="CodeChallenge_Sponsor" EntityType="CodeChallenge.CodeChallenge_Sponsor" />
+          <AssociationSet Name="FK_CodeChallenge_CodeChallenge_Sponsor" Association="CodeChallenge.FK_CodeChallenge_CodeChallenge_Sponsor">
+            <End Role="CodeChallenge_Sponsor" EntitySet="CodeChallenge_Sponsor" />
+            <End Role="CodeChallenge" EntitySet="CodeChallenges" />
+          </AssociationSet>
+          <EntitySet Name="CodeChallenge_Announcement" EntityType="CodeChallenge.CodeChallenge_Announcement" />
+          <EntitySet Name="CodeChallenge_Config" EntityType="CodeChallenge.CodeChallenge_Config" />
+          </EntityContainer>
+        <EntityType Name="CodeChallenge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="ChallengeName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="Instructions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ExecutorAssembly" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MaximumRunningSeconds" Type="Int32" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CodeChallenge_Entry" Relationship="CodeChallenge.FK_CodeChallenge_Entry_CodeChallenge" FromRole="CodeChallenge" ToRole="CodeChallenge_Entry" />
+          <NavigationProperty Name="CodeChallenge_DeveloperAssembly" Relationship="CodeChallenge.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge1" FromRole="CodeChallenge" ToRole="CodeChallenge_DeveloperAssembly" />
+          <Property Type="String" Name="ExecutorAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="ExecutionCommonAssembly" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="ExecutionCommonAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SampleProjectFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="SampleProject" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="DocumentationFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="Documentation" MaxLength="Max" FixedLength="false" />
+          <Property Type="Int32" Name="CodeChallenge_Sponsor_id" />
+          <NavigationProperty Name="CodeChallenge_Sponsor" Relationship="CodeChallenge.FK_CodeChallenge_CodeChallenge_Sponsor" FromRole="CodeChallenge" ToRole="CodeChallenge_Sponsor" />
+          <Property Type="Int32" Name="SampleDownloads" />
+          <Property Type="Int32" Name="DocumentationDownloads" />
+          <Property Type="Boolean" Name="IsHidden" />
+          <Property Type="Int32" Name="TotalEntries" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="CodeChallenge_Id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorUserId" Type="Guid" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Submission" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+          <Property Name="DateRan" Type="DateTime" Nullable="true" />
+          <Property Name="TotalExecutionTime" Type="Int32" Nullable="true" />
+          <Property Name="FinalScore" Type="Int64" Nullable="true" />
+          <NavigationProperty Name="CodeChallenge" Relationship="CodeChallenge.FK_CodeChallenge_Entry_CodeChallenge" FromRole="CodeChallenge_Entry" ToRole="CodeChallenge" />
+          <NavigationProperty Name="CodeChallenge_Entry_Result" Relationship="CodeChallenge.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" FromRole="CodeChallenge_Entry" ToRole="CodeChallenge_Entry_Result" />
+          <NavigationProperty Name="aspnet_Users" Relationship="CodeChallenge.CodeChallenge_Entryaspnet_Users" FromRole="CodeChallenge_Entry" ToRole="aspnet_Users" />
+          <NavigationProperty Name="vw_codechallenge_secure" Relationship="CodeChallenge.vw_codechallenge_secureCodeChallenge_Entry" FromRole="CodeChallenge_Entry" ToRole="vw_codechallenge_secure" />
+          <Property Type="String" Name="ExecutionDetails" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsTest" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry_Result">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="codechallenge_entry_id" Type="Int32" Nullable="false" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="error" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="successful" Type="Boolean" Nullable="false" />
+          <Property Name="result_message" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="score" Type="Int64" Nullable="false" />
+          <Property Name="author_note" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CodeChallenge_Entry" Relationship="CodeChallenge.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" FromRole="CodeChallenge_Entry_Result" ToRole="CodeChallenge_Entry" />
+          <Property Type="Decimal" Name="cpu_cycles" Precision="21" Scale="0" />
+          <Property Type="Binary" Name="test_result_data" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_CodeChallenge_Entry_CodeChallenge">
+          <End Role="CodeChallenge" Type="CodeChallenge.CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry" Type="CodeChallenge.CodeChallenge_Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry">
+              <PropertyRef Name="CodeChallenge_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+          <End Role="CodeChallenge_Entry" Type="CodeChallenge.CodeChallenge_Entry" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry_Result" Type="CodeChallenge.CodeChallenge_Entry_Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Entry">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry_Result">
+              <PropertyRef Name="codechallenge_entry_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CodeChallenge_DeveloperAssembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="codechallenge_id" Nullable="false" />
+          <Property Type="String" Name="assembly_fullname" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="assembly" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CodeChallenge" Relationship="CodeChallenge.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge1" FromRole="CodeChallenge_DeveloperAssembly" ToRole="CodeChallenge" />
+          <NavigationProperty Name="vw_codechallenge_secure" Relationship="CodeChallenge.vw_codechallenge_secureCodeChallenge_DeveloperAssembly" FromRole="CodeChallenge_DeveloperAssembly" ToRole="vw_codechallenge_secure" />
+          <Property Type="Int32" Name="NumberOfDownloads" />
+        </EntityType>
+        <Association Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge1">
+          <End Type="CodeChallenge.CodeChallenge" Role="CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CodeChallenge.CodeChallenge_DeveloperAssembly" Role="CodeChallenge_DeveloperAssembly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_DeveloperAssembly">
+              <PropertyRef Name="codechallenge_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CodeChallenge_Assembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Binary" Name="assembly" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="AssemblyFullName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Trusted" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+          <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Users" Relationship="CodeChallenge.FK__aspnet_Me__UserI__7E37BEF6" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="CodeChallenge.FK__aspnet_Me__UserI__7E37BEF6" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="CodeChallenge_Entry" Relationship="CodeChallenge.CodeChallenge_Entryaspnet_Users" FromRole="aspnet_Users" ToRole="CodeChallenge_Entry" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__7E37BEF6">
+          <End Type="CodeChallenge.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="CodeChallenge.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CodeChallenge_Entryaspnet_Users">
+          <End Type="CodeChallenge.CodeChallenge_Entry" Role="CodeChallenge_Entry" Multiplicity="*" />
+          <End Type="CodeChallenge.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry">
+              <PropertyRef Name="AuthorUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vw_codechallenge_entry_challenge_user">
+          <Key>
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="MaximumRunningSeconds" />
+            <PropertyRef Name="MaximumMemoryUsageBytes" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="CodeChallenge_Id" />
+            <PropertyRef Name="AuthorUserId" />
+            <PropertyRef Name="AssemblyFullName" />
+            <PropertyRef Name="DateAdded" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="TypeName" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Type="String" Name="ChallengeName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="String" Name="Instructions" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="MaximumRunningSeconds" Nullable="false" />
+          <Property Type="Decimal" Name="MaximumMemoryUsageBytes" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="CodeChallenge_Id" Nullable="false" />
+          <Property Type="Guid" Name="AuthorUserId" Nullable="false" />
+          <Property Type="String" Name="AssemblyFullName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateAdded" Nullable="false" />
+          <Property Type="DateTime" Name="DateRan" />
+          <Property Type="Int32" Name="TotalExecutionTime" />
+          <Property Type="Int64" Name="FinalScore" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExecutorAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExecutionCommonAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Expr1" Nullable="false" />
+          <Property Type="String" Name="DocumentationFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SampleProjectFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsHidden" />
+        </EntityType>
+        <EntityType Name="vw_codechallenge_secure">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="ChallengeName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="String" Name="Instructions" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExecutorAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExecutionCommonAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MaximumRunningSeconds" Nullable="false" />
+          <Property Type="Decimal" Name="MaximumMemoryUsageBytes" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="CodeChallenge_DeveloperAssembly" Relationship="CodeChallenge.vw_codechallenge_secureCodeChallenge_DeveloperAssembly" FromRole="vw_codechallenge_secure" ToRole="CodeChallenge_DeveloperAssembly" />
+          <NavigationProperty Name="CodeChallenge_Entry" Relationship="CodeChallenge.vw_codechallenge_secureCodeChallenge_Entry" FromRole="vw_codechallenge_secure" ToRole="CodeChallenge_Entry" />
+          <Property Type="String" Name="DocumentationFilename" Nullable="true" MaxLength="250" FixedLength="false" />
+          <Property Type="String" Name="SampleProjectFilename" Nullable="true" FixedLength="false" MaxLength="250" />
+          <Property Type="String" Name="SponsorName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SponsorDescription" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SampleDownloads" />
+          <Property Type="Int32" Name="DocumentationDownloads" />
+          <Property Type="Boolean" Name="IsHidden" />
+        </EntityType>
+        <Association Name="vw_codechallenge_secureCodeChallenge_DeveloperAssembly">
+          <End Type="CodeChallenge.vw_codechallenge_secure" Role="vw_codechallenge_secure" Multiplicity="1" />
+          <End Type="CodeChallenge.CodeChallenge_DeveloperAssembly" Role="CodeChallenge_DeveloperAssembly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vw_codechallenge_secure">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_DeveloperAssembly">
+              <PropertyRef Name="codechallenge_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vw_codechallenge_secureCodeChallenge_Entry">
+          <End Type="CodeChallenge.vw_codechallenge_secure" Role="vw_codechallenge_secure" Multiplicity="1" />
+          <End Type="CodeChallenge.CodeChallenge_Entry" Role="CodeChallenge_Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vw_codechallenge_secure">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry">
+              <PropertyRef Name="CodeChallenge_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CodeChallenge_Sponsor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CodeChallenges" Relationship="CodeChallenge.FK_CodeChallenge_CodeChallenge_Sponsor" FromRole="CodeChallenge_Sponsor" ToRole="CodeChallenge" />
+        </EntityType>
+        <Association Name="FK_CodeChallenge_CodeChallenge_Sponsor">
+          <End Type="CodeChallenge.CodeChallenge_Sponsor" Role="CodeChallenge_Sponsor" Multiplicity="0..1" />
+          <End Type="CodeChallenge.CodeChallenge" Role="CodeChallenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Sponsor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge">
+              <PropertyRef Name="CodeChallenge_Sponsor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CodeChallenge_Announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="PostingDate" Nullable="false" />
+          <Property Type="String" Name="AnnouncementHtml" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="DateTime" Name="LastServiceHeartbeat" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodeChallengeStoreContainer" CdmEntityContainer="CodeChallengeModel">
+          <EntitySetMapping Name="CodeChallenges">
+            <EntityTypeMapping TypeName="IsTypeOf(CodeChallenge.CodeChallenge)">
+              <MappingFragment StoreEntitySet="CodeChallenge">
+                <ScalarProperty Name="TotalEntries" ColumnName="TotalEntries" />
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+                <ScalarProperty Name="DocumentationDownloads" ColumnName="DocumentationDownloads" />
+                <ScalarProperty Name="SampleDownloads" ColumnName="SampleDownloads" />
+                <ScalarProperty Name="CodeChallenge_Sponsor_id" ColumnName="CodeChallenge_Sponsor_id" />
+                <ScalarProperty Name="Documentation" ColumnName="Documentation" />
+                <ScalarProperty Name="DocumentationFilename" ColumnName="DocumentationFilename" />
+                <ScalarProperty Name="SampleProject" ColumnName="SampleProject" />
+                <ScalarProperty Name="SampleProjectFilename" ColumnName="SampleProjectFilename" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaximumMemoryUsageBytes" ColumnName="MaximumMemoryUsageBytes" />
+                <ScalarProperty Name="MaximumRunningSeconds" ColumnName="MaximumRunningSeconds" />
+                <ScalarProperty Name="ExecutorAssembly" ColumnName="ExecutorAssembly" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ChallengeName" ColumnName="ChallengeName" />
+                <ScalarProperty Name="ExecutorAssemblyFullName" ColumnName="ExecutorAssemblyFullName" />
+                <ScalarProperty Name="ExecutionCommonAssembly" ColumnName="ExecutionCommonAssembly" />
+                <ScalarProperty Name="ExecutionCommonAssemblyFullName" ColumnName="ExecutionCommonAssemblyFullName" />
+              </MappingFragment>
+            </EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Entry"><EntityTypeMapping TypeName="CodeChallenge.CodeChallenge_Entry"><MappingFragment StoreEntitySet="CodeChallenge_Entry">
+            <ScalarProperty Name="IsTest" ColumnName="IsTest" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="ExecutionDetails" ColumnName="ExecutionDetails" />
+                <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="CodeChallenge_Id" ColumnName="CodeChallenge_Id" />
+            <ScalarProperty Name="AuthorUserId" ColumnName="AuthorUserId" />
+            <ScalarProperty Name="AssemblyFullName" ColumnName="AssemblyFullName" />
+            <ScalarProperty Name="Submission" ColumnName="Submission" />
+            <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+            <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+            <ScalarProperty Name="DateRan" ColumnName="DateRan" />
+            <ScalarProperty Name="TotalExecutionTime" ColumnName="TotalExecutionTime" />
+            <ScalarProperty Name="FinalScore" ColumnName="FinalScore" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Entry_Result"><EntityTypeMapping TypeName="CodeChallenge.CodeChallenge_Entry_Result"><MappingFragment StoreEntitySet="CodeChallenge_Entry_Result">
+            <ScalarProperty Name="test_result_data" ColumnName="test_result_data" />
+                <ScalarProperty Name="cpu_cycles" ColumnName="cpu_cycles" />
+                <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="codechallenge_entry_id" ColumnName="codechallenge_entry_id" />
+            <ScalarProperty Name="duration" ColumnName="duration" />
+            <ScalarProperty Name="error" ColumnName="error" />
+            <ScalarProperty Name="successful" ColumnName="successful" />
+            <ScalarProperty Name="result_message" ColumnName="result_message" />
+            <ScalarProperty Name="score" ColumnName="score" />
+            <ScalarProperty Name="author_note" ColumnName="author_note" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_DeveloperAssembly">
+            <EntityTypeMapping TypeName="CodeChallenge.CodeChallenge_DeveloperAssembly">
+              <MappingFragment StoreEntitySet="CodeChallenge_DeveloperAssembly">
+                <ScalarProperty Name="NumberOfDownloads" ColumnName="NumberOfDownloads" />
+                <ScalarProperty Name="assembly" ColumnName="assembly" />
+                <ScalarProperty Name="assembly_fullname" ColumnName="assembly_fullname" />
+                <ScalarProperty Name="codechallenge_id" ColumnName="codechallenge_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Assembly">
+            <EntityTypeMapping TypeName="CodeChallenge.CodeChallenge_Assembly">
+              <MappingFragment StoreEntitySet="CodeChallenge_Assembly">
+                <ScalarProperty Name="Trusted" ColumnName="Trusted" />
+                <ScalarProperty Name="AssemblyFullName" ColumnName="AssemblyFullName" />
+                <ScalarProperty Name="assembly" ColumnName="assembly" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="CodeChallenge.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="CodeChallenge.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_codechallenge_entry_challenge_user">
+            <EntityTypeMapping TypeName="CodeChallenge.vw_codechallenge_entry_challenge_user">
+              <MappingFragment StoreEntitySet="vw_codechallenge_entry_challenge_user">
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+                <ScalarProperty Name="SampleProjectFilename" ColumnName="SampleProjectFilename" />
+                <ScalarProperty Name="DocumentationFilename" ColumnName="DocumentationFilename" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="ExecutionCommonAssemblyFullName" ColumnName="ExecutionCommonAssemblyFullName" />
+                <ScalarProperty Name="ExecutorAssemblyFullName" ColumnName="ExecutorAssemblyFullName" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FinalScore" ColumnName="FinalScore" />
+                <ScalarProperty Name="TotalExecutionTime" ColumnName="TotalExecutionTime" />
+                <ScalarProperty Name="DateRan" ColumnName="DateRan" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="AssemblyFullName" ColumnName="AssemblyFullName" />
+                <ScalarProperty Name="AuthorUserId" ColumnName="AuthorUserId" />
+                <ScalarProperty Name="CodeChallenge_Id" ColumnName="CodeChallenge_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaximumMemoryUsageBytes" ColumnName="MaximumMemoryUsageBytes" />
+                <ScalarProperty Name="MaximumRunningSeconds" ColumnName="MaximumRunningSeconds" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ChallengeName" ColumnName="ChallengeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_codechallenge_secure">
+            <EntityTypeMapping TypeName="CodeChallenge.vw_codechallenge_secure">
+              <MappingFragment StoreEntitySet="vw_codechallenge_secure">
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+                <ScalarProperty Name="DocumentationDownloads" ColumnName="DocumentationDownloads" />
+                <ScalarProperty Name="SampleDownloads" ColumnName="SampleDownloads" />
+                <ScalarProperty Name="SponsorDescription" ColumnName="SponsorDescription" />
+                <ScalarProperty Name="SponsorName" ColumnName="SponsorName" />
+                <ScalarProperty Name="DocumentationFilename" ColumnName="DocumentationFilename" />
+                <ScalarProperty Name="SampleProjectFilename" ColumnName="SampleProjectFilename" />
+                <ScalarProperty Name="MaximumMemoryUsageBytes" ColumnName="MaximumMemoryUsageBytes" />
+                <ScalarProperty Name="MaximumRunningSeconds" ColumnName="MaximumRunningSeconds" />
+                <ScalarProperty Name="ExecutionCommonAssemblyFullName" ColumnName="ExecutionCommonAssemblyFullName" />
+                <ScalarProperty Name="ExecutorAssemblyFullName" ColumnName="ExecutorAssemblyFullName" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ChallengeName" ColumnName="ChallengeName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Sponsor">
+            <EntityTypeMapping TypeName="CodeChallenge.CodeChallenge_Sponsor">
+              <MappingFragment StoreEntitySet="CodeChallenge_Sponsor">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Announcement">
+            <EntityTypeMapping TypeName="CodeChallenge.CodeChallenge_Announcement">
+              <MappingFragment StoreEntitySet="CodeChallenge_Announcement">
+                <ScalarProperty Name="AnnouncementHtml" ColumnName="AnnouncementHtml" />
+                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Config">
+            <EntityTypeMapping TypeName="CodeChallenge.CodeChallenge_Config">
+              <MappingFragment StoreEntitySet="CodeChallenge_Config">
+                <ScalarProperty Name="LastServiceHeartbeat" ColumnName="LastServiceHeartbeat" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CodeChallenge">
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge" Width="2.75" PointX="3.5" PointY="0.5" Height="5.2494108072916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge_Entry" Width="2.25" PointX="7.125" PointY="1.25" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge_Entry_Result" Width="2.375" PointX="10.5" PointY="1.5" Height="2.7494921874999996" IsExpanded="true" />
+        <AssociationConnector Association="CodeChallenge.FK_CodeChallenge_Entry_CodeChallenge" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.25" PointY="3.4901025390625" />
+          <ConnectorPoint PointX="7.125" PointY="3.4901025390625" />
+        </AssociationConnector>
+        <AssociationConnector Association="CodeChallenge.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.375" PointY="2.87474609375" />
+          <ConnectorPoint PointX="10.5" PointY="2.87474609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge_DeveloperAssembly" Width="2.625" PointX="0.5" PointY="2.75" Height="2.1725878906249996" />
+        <AssociationConnector Association="CodeChallenge.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge1">
+          <ConnectorPoint PointX="3.5" PointY="3.9324446614583328" />
+          <ConnectorPoint PointX="3.125" PointY="3.9324446614583328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge_Assembly" Width="2.75" PointX="10.625" PointY="6.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="CodeChallenge.aspnet_Membership" Width="1.5" PointX="8.625" PointY="6.125" Height="5.2494108072916674" />
+        <EntityTypeShape EntityType="CodeChallenge.aspnet_Users" Width="1.5" PointX="6.375" PointY="7.375" Height="2.5571907552083317" />
+        <AssociationConnector Association="CodeChallenge.FK__aspnet_Me__UserI__7E37BEF6">
+          <ConnectorPoint PointX="7.875" PointY="8.6535953776041659" />
+          <ConnectorPoint PointX="8.625" PointY="8.6535953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="CodeChallenge.CodeChallenge_Entryaspnet_Users">
+          <ConnectorPoint PointX="7.5" PointY="5.15330078125" />
+          <ConnectorPoint PointX="7.5" PointY="7.375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CodeChallenge.vw_codechallenge_entry_challenge_user" Width="1.5" PointX="1.125" PointY="6.25" Height="4.8648079427083388" />
+        <EntityTypeShape EntityType="CodeChallenge.vw_codechallenge_secure" Width="2.625" PointX="3.5" PointY="6.125" Height="3.9033007812499978" />
+        <AssociationConnector Association="CodeChallenge.vw_codechallenge_secureCodeChallenge_DeveloperAssembly">
+          <ConnectorPoint PointX="3.5" PointY="6.15625" />
+          <ConnectorPoint PointX="0.78125" PointY="6.15625" />
+          <ConnectorPoint PointX="0.78125" PointY="5.1148893229166656" />
+        </AssociationConnector>
+        <AssociationConnector Association="CodeChallenge.vw_codechallenge_secureCodeChallenge_Entry">
+          <ConnectorPoint PointX="6.125" PointY="6.125" />
+          <ConnectorPoint PointX="6.5" PointY="5.75" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="5.7499999999999991" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="5.75" />
+          <ConnectorPoint PointX="8.468752" PointY="5.75" />
+          <ConnectorPoint PointX="8.468752" PointY="5.15330078125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge_Sponsor" Width="2.625" PointX="0.5" PointY="0.5" Height="1.7879850260416745" />
+        <AssociationConnector Association="CodeChallenge.FK_CodeChallenge_CodeChallenge_Sponsor">
+          <ConnectorPoint PointX="3.125" PointY="1.3939925130208373" />
+          <ConnectorPoint PointX="3.5" PointY="1.3939925130208373" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge_Announcement" Width="1.75" PointX="3.375" PointY="11.75" Height="1.5923063151041657" />
+        <EntityTypeShape EntityType="CodeChallenge.CodeChallenge_Config" Width="1.5" PointX="11.375" PointY="9.75" Height="1.4033821614583317" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

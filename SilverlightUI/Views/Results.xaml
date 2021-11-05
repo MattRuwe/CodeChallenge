@@ -1,0 +1,261 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+                 x:Class="SilverlightUI.Results" 
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 xmlns:app="clr-namespace:SilverlightUI"
+                 xmlns:my1="clr-namespace:SilverlightUI.Controls"
+                 mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"  
+                 Style="{StaticResource PageStyle}" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" 
+                 xmlns:System="clr-namespace:System;assembly=mscorlib"
+                 xmlns:my="clr-namespace:SilverlightUI">
+
+    <navigation:Page.Resources>
+        <my:CodeChallengeDomainContext x:Key="CodeChallengeDomainContext" />
+        <app:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <app:TruncateStringValueConverter x:Key="TruncateStringValueConverter" />
+        <app:UtcDateTimeToLocalValueConverter x:Key="UtcDateTimeToLocalValueConverter" />
+        <app:ResuleDetailsIdToDownloadUriValueConverter x:Key="ResuleDetailsIdToDownloadUriValueConverter" />
+    </navigation:Page.Resources>
+    <my1:BusyIndicator IsBusy="{Binding Mode=OneWay, ElementName=ResultsDomainDataSource, Path=IsBusy}">
+        <Grid x:Name="LayoutRoot" >
+            <riaControls:DomainDataSource 
+                        AutoLoad="True" 
+                        Name="CodeChallengeDomainDataSource" 
+                        QueryName="GetCodeChallengesSecureQuery"
+                            DomainContext="{StaticResource CodeChallengeDomainContext}">
+                <riaControls:DomainDataSource.QueryParameters>
+                    <riaControls:Parameter ParameterName="onlyActive" Value="True" />
+                </riaControls:DomainDataSource.QueryParameters>
+                <riaControls:DomainDataSource.SortDescriptors>
+                    <riaControls:SortDescriptor PropertyPath="ChallengeName" Direction="Ascending" />
+                </riaControls:DomainDataSource.SortDescriptors>
+            </riaControls:DomainDataSource>
+
+            <riaControls:DomainDataSource 
+                            AutoLoad="True" 
+                            Name="ResultsDomainDataSource" 
+                            QueryName="GetResultsQuery"
+                            DomainContext="{StaticResource CodeChallengeDomainContext}">
+                <riaControls:DomainDataSource.QueryParameters>
+                    <riaControls:Parameter ParameterName="codeChallengeID" Value="{Binding ElementName=lstChallenges, Path=SelectedItem.id}" />
+                </riaControls:DomainDataSource.QueryParameters>
+            </riaControls:DomainDataSource>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock 
+                        x:Name="HeaderText" 
+                        Grid.Row="0"
+                    Margin="15,15,0,0"
+                        Style="{StaticResource HeaderTextStyle}" 
+                        Text="{Binding Path=ApplicationStrings.ResultsPageTitle, Source={StaticResource ResourceWrapper}}"/>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Style="{StaticResource GroupBoxBorder}" Margin="10">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Challenges" Margin="0,0,12,12" Style="{StaticResource HeaderTextStyle}" />
+                                <my1:HelpBox>
+                                    <TextBlock Style="{StaticResource HelpTextStyle}"  Text="A list of available challenges" />
+                                </my1:HelpBox>
+                            </StackPanel>
+                            <ListBox x:Name="lstChallenges" ItemsSource="{Binding ElementName=CodeChallengeDomainDataSource, Path=Data}" Width="150" VerticalAlignment="Stretch">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ChallengeName}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource GroupBoxBorder}" Grid.Column="1" Margin="10">
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Results" Margin="0,0,12,12" Style="{StaticResource HeaderTextStyle}" />
+                                <my1:HelpBox>
+                                    <TextBlock Style="{StaticResource HelpTextStyle}" Text="A listing of entries that you have submitted with their corresponding final score" />
+                                </my1:HelpBox>
+                                <HyperlinkButton x:Name="hlbRefresh" Margin="12,0,0,0">
+                                    <HyperlinkButton.Content>
+                                        <Image Source="/SilverlightUI;component/Assets/Images/btn_refresh_bg.png" Width="20" />
+                                    </HyperlinkButton.Content>
+                                </HyperlinkButton>
+                                <TextBlock Text="NOTE: Unpublished entries older than 30 days are automatically removed" TextWrapping="Wrap" Margin="10 5 0 0" FontSize="10" />
+                            </StackPanel>
+                            <sdk:DataGrid Grid.Row="1" x:Name="dgResults" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True" Height="175"
+                                      ItemsSource="{Binding ElementName=ResultsDomainDataSource, Path=Data}">
+                                <sdk:DataGrid.Columns>
+                                    <sdk:DataGridTextColumn Binding="{Binding Username}" Header="Username" />
+                                    <sdk:DataGridTextColumn Binding="{Binding TotalExecutionTime, StringFormat=\{0:n0\}}" Header="Total Execution Time" />
+                                    <sdk:DataGridTextColumn Binding="{Binding DateAdded, StringFormat=g, Converter={StaticResource UtcDateTimeToLocalValueConverter}}" Header="Date Added" />
+                                    <sdk:DataGridTextColumn Binding="{Binding DateRan, StringFormat=g, Converter={StaticResource UtcDateTimeToLocalValueConverter}}" Header="Date Ran" />
+                                    <sdk:DataGridTextColumn Binding="{Binding FinalScore, StringFormat=\{0:n0\}}" Header="Final Score" />
+                                    <sdk:DataGridCheckBoxColumn Binding="{Binding IsPublished}" Header="Is Published" />
+                                    <sdk:DataGridTextColumn Binding="{Binding Status}" Header="Status" />
+
+                                    <sdk:DataGridTemplateColumn x:Name="dgtcExecutionDetails" Header="Execution Details">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <HyperlinkButton Content="View Execution Details" Tag="{Binding ExecutionDetails}" Click="ExecutionDetails_Click" Margin="3" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+
+                                    <sdk:DataGridTemplateColumn x:Name="dgtcRerunEntry" Header="Rerun Entry">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <HyperlinkButton Content="Rerun" Tag="{Binding}" Click="Rerun_Click" Margin="3" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+
+                                    <sdk:DataGridTemplateColumn x:Name="dgtcDeleteEntry" Header="Delete Entry">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <HyperlinkButton Content="Delete" Tag="{Binding}" Click="Delete_Click" Margin="3" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                </sdk:DataGrid.Columns>
+                            </sdk:DataGrid>
+                            <sdk:DataPager Grid.Row="2" Source="{Binding ElementName=ResultsDomainDataSource, Path=Data}" PageSize="6" />
+                        </Grid>
+                    </Border>
+
+                    <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Border Style="{StaticResource GroupBoxBorder}" Margin="10" MinHeight="200">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                    <TextBlock Text="Details" Margin="0,0,12,12" Style="{StaticResource HeaderTextStyle}" />
+                                    <my1:HelpBox>
+                                        <TextBlock Style="{StaticResource HelpTextStyle}" Text="Details of the selected result above.  This area will give you detailed information about how your challenge ran and what the outcome was.  This information is only viewable by you." />
+                                    </my1:HelpBox>
+                                </StackPanel>
+
+                                <sdk:DataGrid Grid.Row="1" x:Name="dgResultDetails" AutoGenerateColumns="False" ItemsSource="{Binding ElementName=dgResults, Path=SelectedItem.Results, Mode=TwoWay}" IsReadOnly="True">
+                                    <sdk:DataGrid.Columns>
+                                        <sdk:DataGridTextColumn Binding="{Binding Duration, StringFormat=\{0:n0\}}" Header="Duration" />
+                                        <sdk:DataGridTextColumn Binding="{Binding Error}" Header="Error" />
+                                        <sdk:DataGridTextColumn Binding="{Binding Successful}" Header="Successful" />
+                                        <sdk:DataGridTextColumn Binding="{Binding ResultMessage}" Header="Result Message" />
+                                        <sdk:DataGridTextColumn Binding="{Binding Score, StringFormat=\{0:n0\}}" Header="Score" />
+                                        <sdk:DataGridTextColumn Binding="{Binding AuthorNote}" Header="Author Note" />
+                                        <sdk:DataGridTextColumn Binding="{Binding CpuCycles, StringFormat=\{0:n0\}}" Header="CPU Cycles" />
+                                        <sdk:DataGridTemplateColumn Header="Test Data">
+                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <HyperlinkButton Content="Test Data" NavigateUri="{Binding ID, Converter={StaticResource ResuleDetailsIdToDownloadUriValueConverter}}" Margin="3" TargetName="_blank" Visibility="{Binding TestDataAvailable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                </DataTemplate>
+                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                        </sdk:DataGridTemplateColumn>
+                                    </sdk:DataGrid.Columns>
+                                </sdk:DataGrid>
+                            </Grid>
+                        </Border>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+
+            <Popup x:Name="popExecutionDetails">
+                <Grid x:Name="gdExecutionDetails" SizeChanged="popExecutionDetails_SizeChanged">
+                    <Grid.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Grid x:Name="RootElement">
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualStateGroup.Transitions>
+                                                        <VisualTransition GeneratedDuration="00:00:00" To="ReadOnly"/>
+                                                    </VisualStateGroup.Transitions>
+                                                    <VisualState x:Name="Normal"/>
+                                                    <VisualState x:Name="ReadOnly">
+                                                        <Storyboard>
+                                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ReadOnlyVisualElement" Storyboard.TargetProperty="Opacity">
+                                                                <SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+                                                            </DoubleAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" 
+                                                                          Storyboard.TargetName="ReadOnlyVisualElement"
+                                                                          Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                                                <EasingColorKeyFrame KeyTime="00:00:00" Value="White"/>
+                                                            </ColorAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Border x:Name="Border" Opacity="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="1">
+                                                <Grid>
+                                                    <Border x:Name="ReadOnlyVisualElement" Opacity="0" Background="#5EC9C9C9"/>
+                                                    <Border x:Name="MouseOverBorder" BorderBrush="Transparent" BorderThickness="1">
+                                                        <ScrollViewer x:Name="ContentElement" BorderThickness="0" IsTabStop="False" Padding="{TemplateBinding Padding}"/>
+                                                    </Border>
+                                                </Grid>
+                                            </Border>
+                                            <Border x:Name="DisabledVisualElement" IsHitTestVisible="False" Opacity="0" Background="#A5F7F7F7" BorderBrush="#A5F7F7F7" BorderThickness="{TemplateBinding BorderThickness}"/>
+                                            <Border x:Name="FocusVisualElement" Margin="1" IsHitTestVisible="False" Opacity="0" BorderBrush="#FF6DBDD1" BorderThickness="{TemplateBinding BorderThickness}"/>
+
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </Grid.Resources>
+                    <Rectangle Fill="white" Opacity=".5" />
+                    <Border BorderBrush="Gray" BorderThickness="2" Margin="20" CornerRadius="3" Background="White">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="0">
+                                <TextBox x:Name="tbExecutionDetails" TextWrapping="Wrap" IsReadOnly="True" Background="White" BorderBrush="Transparent"/>
+                            </ScrollViewer>
+                            <StackPanel Grid.Row="1" HorizontalAlignment="Right" Margin="12">
+                                <Button x:Name="btnClosePopup" Content="Close" Click="btnClosePopup_Click" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Popup>
+        </Grid>
+    </my1:BusyIndicator>
+</navigation:Page>

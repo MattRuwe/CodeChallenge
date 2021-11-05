@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CodeChallengeDomainService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd2" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd3" namespace="DomainServices" />
+      <xsd:import schemaLocation="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/SilverlightUI" />
+      <xsd:import schemaLocation="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetAssemblyFullname_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssemblyFullname" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetAssemblyFullname_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssemblyFullnameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetAssemblyFullname_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q1="DomainServices" name="detail" element="q1:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetIChallengeImplementations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIChallengeImplementations" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetIChallengeImplementations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIChallengeImplementationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetIChallengeImplementations_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q2="DomainServices" name="detail" element="q2:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResults" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetResults_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q3="DomainServices" name="detail" element="q3:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetLatestEntries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestEntries" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetLatestEntries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestEntriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetLatestEntries_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q4="DomainServices" name="detail" element="q4:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengeSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallengeSecure" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengeSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallengeSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengeSecure_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q5="DomainServices" name="detail" element="q5:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengesSecure_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallengesSecure" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengesSecure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallengesSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengesSecure_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q6="DomainServices" name="detail" element="q6:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenges_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenges" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallengesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenges_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q7="DomainServices" name="detail" element="q7:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengesWithDeveloperAssemblies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallengesWithDeveloperAssemblies" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengesWithDeveloperAssemblies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallengesWithDeveloperAssembliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallengesWithDeveloperAssemblies_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q8="DomainServices" name="detail" element="q8:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Assembly_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_Assembly" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Assembly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_AssemblyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Assembly_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q9="DomainServices" name="detail" element="q9:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_DeveloperAssembly_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_DeveloperAssembly" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_DeveloperAssembly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_DeveloperAssemblyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_DeveloperAssembly_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q10="DomainServices" name="detail" element="q10:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_RerunEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:RerunEntry" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_RerunEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RerunEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_RerunEntry_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q11="DomainServices" name="detail" element="q11:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetEntry_Challenge_User_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntry_Challenge_User" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetEntry_Challenge_User_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntry_Challenge_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetEntry_Challenge_User_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q12="DomainServices" name="detail" element="q12:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_Entry" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_EntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q13="DomainServices" name="detail" element="q13:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetLeaderBoardResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeaderBoardResults" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetLeaderBoardResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeaderBoardResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetLeaderBoardResults_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q14="DomainServices" name="detail" element="q14:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_Result_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_Entry_Result" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_Result_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_Entry_ResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_Result_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q15="DomainServices" name="detail" element="q15:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Sponsor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_Sponsor" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Sponsor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_SponsorResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Sponsor_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q16="DomainServices" name="detail" element="q16:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Announcement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_Announcement" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Announcement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeChallenge_AnnouncementResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_GetCodeChallenge_Announcement_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q17="DomainServices" name="detail" element="q17:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_SubmitChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitChanges" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_SubmitChanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodeChallengeDomainServicesoap_SubmitChanges_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q18="DomainServices" name="detail" element="q18:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:portType name="CodeChallengeDomainServicesoap">
+    <wsdl:operation name="GetAssemblyFullname">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetAssemblyFullname" message="tns:CodeChallengeDomainServicesoap_GetAssemblyFullname_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetAssemblyFullnameResponse" message="tns:CodeChallengeDomainServicesoap_GetAssemblyFullname_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetAssemblyFullnameDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetAssemblyFullname_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIChallengeImplementations">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetIChallengeImplementations" message="tns:CodeChallengeDomainServicesoap_GetIChallengeImplementations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetIChallengeImplementationsResponse" message="tns:CodeChallengeDomainServicesoap_GetIChallengeImplementations_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetIChallengeImplementationsDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetIChallengeImplementations_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetResults" message="tns:CodeChallengeDomainServicesoap_GetResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetResultsResponse" message="tns:CodeChallengeDomainServicesoap_GetResults_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetResultsDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetResults_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestEntries">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetLatestEntries" message="tns:CodeChallengeDomainServicesoap_GetLatestEntries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetLatestEntriesResponse" message="tns:CodeChallengeDomainServicesoap_GetLatestEntries_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetLatestEntriesDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetLatestEntries_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallengeSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengeSecure" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengeSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengeSecureResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengeSecure_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengeSecureDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengeSecure_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallengesSecure">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesSecure" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengesSecure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesSecureResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengesSecure_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesSecureDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengesSecure_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenges">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenges" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenges_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenges_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallengesWithDeveloperAssemblies">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesWithDeveloperAssemblies" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengesWithDeveloperAssemblies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesWithDeveloperAssembliesResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengesWithDeveloperAssemblies_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesWithDeveloperAssembliesDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallengesWithDeveloperAssemblies_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Assembly">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Assembly" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Assembly_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_AssemblyResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Assembly_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_AssemblyDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Assembly_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_DeveloperAssembly">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_DeveloperAssembly" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_DeveloperAssembly_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_DeveloperAssemblyResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_DeveloperAssembly_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_DeveloperAssemblyDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_DeveloperAssembly_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RerunEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/RerunEntry" message="tns:CodeChallengeDomainServicesoap_RerunEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/RerunEntryResponse" message="tns:CodeChallengeDomainServicesoap_RerunEntry_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/RerunEntryDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_RerunEntry_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntry_Challenge_User">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetEntry_Challenge_User" message="tns:CodeChallengeDomainServicesoap_GetEntry_Challenge_User_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetEntry_Challenge_UserResponse" message="tns:CodeChallengeDomainServicesoap_GetEntry_Challenge_User_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetEntry_Challenge_UserDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetEntry_Challenge_User_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Entry">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Entry" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_EntryResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_EntryDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaderBoardResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetLeaderBoardResults" message="tns:CodeChallengeDomainServicesoap_GetLeaderBoardResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetLeaderBoardResultsResponse" message="tns:CodeChallengeDomainServicesoap_GetLeaderBoardResults_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetLeaderBoardResultsDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetLeaderBoardResults_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Entry_Result">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Entry_Result" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_Result_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Entry_ResultResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_Result_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Entry_ResultDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Entry_Result_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Sponsor">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Sponsor" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Sponsor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_SponsorResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Sponsor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_SponsorDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Sponsor_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Announcement">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Announcement" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Announcement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_AnnouncementResponse" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Announcement_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_AnnouncementDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_GetCodeChallenge_Announcement_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitChanges">
+      <wsdl:input wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/SubmitChanges" message="tns:CodeChallengeDomainServicesoap_SubmitChanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/SubmitChangesResponse" message="tns:CodeChallengeDomainServicesoap_SubmitChanges_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/CodeChallengeDomainServicesoap/SubmitChangesDomainServiceFault" name="DomainServiceFault" message="tns:CodeChallengeDomainServicesoap_SubmitChanges_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_CodeChallengeDomainServicesoap" type="tns:CodeChallengeDomainServicesoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAssemblyFullname">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetAssemblyFullname" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetIChallengeImplementations">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetIChallengeImplementations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetResults">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestEntries">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetLatestEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallengeSecure">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengeSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallengesSecure">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenges">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallengesWithDeveloperAssemblies">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallengesWithDeveloperAssemblies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Assembly">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Assembly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_DeveloperAssembly">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_DeveloperAssembly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RerunEntry">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/RerunEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntry_Challenge_User">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetEntry_Challenge_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Entry">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Entry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaderBoardResults">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetLeaderBoardResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Entry_Result">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Entry_Result" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Sponsor">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Sponsor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeChallenge_Announcement">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/GetCodeChallenge_Announcement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitChanges">
+      <soap:operation soapAction="http://tempuri.org/CodeChallengeDomainServicesoap/SubmitChanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CodeChallengeDomainService">
+    <wsdl:port name="BasicHttpBinding_CodeChallengeDomainServicesoap" binding="tns:BasicHttpBinding_CodeChallengeDomainServicesoap">
+      <soap:address location="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

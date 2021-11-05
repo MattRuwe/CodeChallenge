@@ -1,0 +1,106 @@
+﻿<navigation:Page x:Class="SilverlightUI.Announcements" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 xmlns:telerikXamlFormatter="clr-namespace:Telerik.Windows.Documents.FormatProviders.Xaml;assembly=Telerik.Windows.Documents.FormatProviders.Xaml"
+                 xmlns:telerikHtmlFormatter="clr-namespace:Telerik.Windows.Documents.FormatProviders.Html;assembly=Telerik.Windows.Documents.FormatProviders.Html"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Announcements Page" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:SilverlightUI" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <Grid x:Name="LayoutRoot">
+
+        <riaControls:DomainDataSource 
+            AutoLoad="True"
+            Name="CodeChallenge_AnnouncementDomainDataSource" 
+            QueryName="GetCodeChallenge_AnnouncementQuery">
+            <riaControls:DomainDataSource.DomainContext>
+                <my:CodeChallengeDomainContext />
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Style="{StaticResource HeaderTextStyle}" Text="{Binding Path=ApplicationStrings.AnnouncementsPageTitle, Source={StaticResource ResourceWrapper}}" />
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border Style="{StaticResource GroupBoxBorder}" Margin="20,5,10,20">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,12,0,12">
+                            <HyperlinkButton x:Name="hlbAdd" Content="Add" />
+                            <HyperlinkButton x:Name="hlbDelete" Content="Delete" Margin="12,0,0,0" />
+                        </StackPanel>
+                        <ListBox 
+                ItemsSource="{Binding ElementName=CodeChallenge_AnnouncementDomainDataSource, Path=Data}" 
+                Name="CodeChallenge_AnnouncementListBox" Margin="5">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource GroupBoxBorder}" Margin="10,5,20,20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" Text="Title: " Margin="3" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=CodeChallenge_AnnouncementListBox, Path=SelectedItem.Title, Mode=TwoWay}" Margin="3" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" Text="Posting: " Margin="3" VerticalAlignment="Center"/>
+                        <telerik:RadRichTextBox Grid.Column="0" 
+                                                Grid.Row="3" 
+                                                Grid.ColumnSpan="2" 
+                                                IsSpellCheckingEnabled="False" 
+                                                DocumentInheritsDefaultStyleSettings="True" 
+                                                IsContextMenuEnabled="True" 
+                                                IsSelectionMiniToolBarEnabled="True" Name="rtbAnnouncement" 
+                                                VerticalScrollBarVisibility="Auto" 
+                                                Margin="5" 
+                                                HorizontalScrollBarVisibility="Disabled">
+                            <telerik:RadRichTextBox.Resources>
+                                <!--<telerikXamlFormatter:XamlDataProvider 
+                                    x:Key="provider" 
+                                    RichTextBox="{Binding ElementName=rtbAnnouncement}" 
+                                    Xaml="{Binding ElementName=CodeChallenge_AnnouncementListBox, Path=SelectedItem.Announcement, Mode=TwoWay}" />-->
+                                <telerikHtmlFormatter:HtmlDataProvider 
+                                    x:Name="provider2"
+                                    RichTextBox="{Binding ElementName=rtbAnnouncement}" 
+                                    Html="{Binding ElementName=CodeChallenge_AnnouncementListBox, Path=SelectedItem.AnnouncementHtml, Mode=TwoWay}">
+                                </telerikHtmlFormatter:HtmlDataProvider>
+                            </telerik:RadRichTextBox.Resources>
+                        </telerik:RadRichTextBox>
+
+                        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="12" Orientation="Horizontal">
+                            <Button x:Name="btnSave" Content="Save" Command="{Binding ElementName=CodeChallenge_AnnouncementDomainDataSource, Path=SubmitChangesCommand}" />
+                            <Button x:Name="btnCancel" Content="Cancel" Margin="12,0,0,0" Command="{Binding ElementName=CodeChallenge_AnnouncementDomainDataSource, Path=RejectChangesCommand}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</navigation:Page>
+

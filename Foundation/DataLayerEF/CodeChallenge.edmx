@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OmahaMTGDevModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="OmahaMTGDevModelStoreContainer">
+          <EntitySet Name="CodeChallenge" EntityType="OmahaMTGDevModel.Store.CodeChallenge" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Announcement" EntityType="OmahaMTGDevModel.Store.CodeChallenge_Announcement" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Assembly" EntityType="OmahaMTGDevModel.Store.CodeChallenge_Assembly" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Config" EntityType="OmahaMTGDevModel.Store.CodeChallenge_Config" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_DeveloperAssembly" EntityType="OmahaMTGDevModel.Store.CodeChallenge_DeveloperAssembly" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Entry" EntityType="OmahaMTGDevModel.Store.CodeChallenge_Entry" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Entry_Result" EntityType="OmahaMTGDevModel.Store.CodeChallenge_Entry_Result" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="CodeChallenge_Sponsor" EntityType="OmahaMTGDevModel.Store.CodeChallenge_Sponsor" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="vw_codechallenge_entry_challenge_user" EntityType="OmahaMTGDevModel.Store.vw_codechallenge_entry_challenge_user" store:Type="Views" store:Schema="dbo" store:Name="vw_codechallenge_entry_challenge_user" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [vw_codechallenge_entry_challenge_user].[ChallengeName] AS [ChallengeName], 
+      [vw_codechallenge_entry_challenge_user].[StartDate] AS [StartDate], 
+      [vw_codechallenge_entry_challenge_user].[EndDate] AS [EndDate], 
+      [vw_codechallenge_entry_challenge_user].[Instructions] AS [Instructions], 
+      [vw_codechallenge_entry_challenge_user].[MaximumRunningSeconds] AS [MaximumRunningSeconds], 
+      [vw_codechallenge_entry_challenge_user].[MaximumMemoryUsageBytes] AS [MaximumMemoryUsageBytes], 
+      [vw_codechallenge_entry_challenge_user].[id] AS [id], 
+      [vw_codechallenge_entry_challenge_user].[CodeChallenge_Id] AS [CodeChallenge_Id], 
+      [vw_codechallenge_entry_challenge_user].[AuthorUserId] AS [AuthorUserId], 
+      [vw_codechallenge_entry_challenge_user].[AssemblyFullName] AS [AssemblyFullName], 
+      [vw_codechallenge_entry_challenge_user].[DateAdded] AS [DateAdded], 
+      [vw_codechallenge_entry_challenge_user].[DateRan] AS [DateRan], 
+      [vw_codechallenge_entry_challenge_user].[TotalExecutionTime] AS [TotalExecutionTime], 
+      [vw_codechallenge_entry_challenge_user].[FinalScore] AS [FinalScore], 
+      [vw_codechallenge_entry_challenge_user].[UserName] AS [UserName], 
+      [vw_codechallenge_entry_challenge_user].[UserId] AS [UserId], 
+      [vw_codechallenge_entry_challenge_user].[TypeName] AS [TypeName], 
+      [vw_codechallenge_entry_challenge_user].[ExecutorAssemblyFullName] AS [ExecutorAssemblyFullName], 
+      [vw_codechallenge_entry_challenge_user].[ExecutionCommonAssemblyFullName] AS [ExecutionCommonAssemblyFullName], 
+      [vw_codechallenge_entry_challenge_user].[Expr1] AS [Expr1], 
+      [vw_codechallenge_entry_challenge_user].[DocumentationFilename] AS [DocumentationFilename], 
+      [vw_codechallenge_entry_challenge_user].[SampleProjectFilename] AS [SampleProjectFilename], 
+      [vw_codechallenge_entry_challenge_user].[IsHidden] AS [IsHidden]
+      FROM [dbo].[vw_codechallenge_entry_challenge_user] AS [vw_codechallenge_entry_challenge_user]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_codechallenge_secure" EntityType="OmahaMTGDevModel.Store.vw_codechallenge_secure" store:Type="Views" store:Schema="dbo" store:Name="vw_codechallenge_secure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [vw_codechallenge_secure].[id] AS [id], 
+      [vw_codechallenge_secure].[ChallengeName] AS [ChallengeName], 
+      [vw_codechallenge_secure].[StartDate] AS [StartDate], 
+      [vw_codechallenge_secure].[EndDate] AS [EndDate], 
+      [vw_codechallenge_secure].[Instructions] AS [Instructions], 
+      [vw_codechallenge_secure].[ExecutorAssemblyFullName] AS [ExecutorAssemblyFullName], 
+      [vw_codechallenge_secure].[ExecutionCommonAssemblyFullName] AS [ExecutionCommonAssemblyFullName], 
+      [vw_codechallenge_secure].[MaximumRunningSeconds] AS [MaximumRunningSeconds], 
+      [vw_codechallenge_secure].[MaximumMemoryUsageBytes] AS [MaximumMemoryUsageBytes], 
+      [vw_codechallenge_secure].[SampleProjectFilename] AS [SampleProjectFilename], 
+      [vw_codechallenge_secure].[DocumentationFilename] AS [DocumentationFilename], 
+      [vw_codechallenge_secure].[SponsorName] AS [SponsorName], 
+      [vw_codechallenge_secure].[SponsorDescription] AS [SponsorDescription], 
+      [vw_codechallenge_secure].[SampleDownloads] AS [SampleDownloads], 
+      [vw_codechallenge_secure].[DocumentationDownloads] AS [DocumentationDownloads], 
+      [vw_codechallenge_secure].[IsHidden] AS [IsHidden]
+      FROM [dbo].[vw_codechallenge_secure] AS [vw_codechallenge_secure]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCodeChallengeEntryHistory" EntityType="OmahaMTGDevModel.Store.vwCodeChallengeEntryHistory" store:Type="Views" store:Schema="dbo" store:Name="vwCodeChallengeEntryHistory" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [vwCodeChallengeEntryHistory].[UserName] AS [UserName], 
+      [vwCodeChallengeEntryHistory].[ChallengeName] AS [ChallengeName], 
+      [vwCodeChallengeEntryHistory].[DateAdded] AS [DateAdded], 
+      [vwCodeChallengeEntryHistory].[FinalScore] AS [FinalScore], 
+      [vwCodeChallengeEntryHistory].[id] AS [id]
+      FROM [dbo].[vwCodeChallengeEntryHistory] AS [vwCodeChallengeEntryHistory]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CodeChallenge_CodeChallenge_Sponsor" Association="OmahaMTGDevModel.Store.FK_CodeChallenge_CodeChallenge_Sponsor">
+            <End Role="CodeChallenge_Sponsor" EntitySet="CodeChallenge_Sponsor" />
+            <End Role="CodeChallenge" EntitySet="CodeChallenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge" Association="OmahaMTGDevModel.Store.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge">
+            <End Role="CodeChallenge" EntitySet="CodeChallenge" />
+            <End Role="CodeChallenge_DeveloperAssembly" EntitySet="CodeChallenge_DeveloperAssembly" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_Entry_CodeChallenge" Association="OmahaMTGDevModel.Store.FK_CodeChallenge_Entry_CodeChallenge">
+            <End Role="CodeChallenge" EntitySet="CodeChallenge" />
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" Association="OmahaMTGDevModel.Store.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+            <End Role="CodeChallenge_Entry_Result" EntitySet="CodeChallenge_Entry_Result" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CodeChallenge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ChallengeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="SampleProjectFilename" Type="varchar" MaxLength="128" />
+          <Property Name="SampleProject" Type="varbinary(max)" />
+          <Property Name="DocumentationFilename" Type="varchar" MaxLength="128" />
+          <Property Name="Documentation" Type="varbinary(max)" />
+          <Property Name="Instructions" Type="ntext" />
+          <Property Name="ExecutorAssembly" Type="varbinary(max)" />
+          <Property Name="ExecutorAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="ExecutionCommonAssembly" Type="varbinary(max)" />
+          <Property Name="ExecutionCommonAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="MaximumRunningSeconds" Type="int" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="numeric" Nullable="false" />
+          <Property Name="CodeChallenge_Sponsor_id" Type="int" />
+          <Property Name="SampleDownloads" Type="int" />
+          <Property Name="DocumentationDownloads" Type="int" />
+          <Property Name="IsHidden" Type="bit" />
+          <Property Name="TotalEntries" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="PostingDate" Type="datetime2" Nullable="false" />
+          <Property Name="AnnouncementHtml" Type="text" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Assembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="assembly" Type="varbinary(max)" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Trusted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LastServiceHeartbeat" Type="datetime2" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_DeveloperAssembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="codechallenge_id" Type="int" Nullable="false" />
+          <Property Name="assembly_fullname" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="assembly" Type="varbinary(max)" Nullable="false" />
+          <Property Name="NumberOfDownloads" Type="int" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CodeChallenge_Id" Type="int" Nullable="false" />
+          <Property Name="AuthorUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Submission" Type="varbinary(max)" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="DateAdded" Type="datetime2" Nullable="false" />
+          <Property Name="DateRan" Type="datetime2" />
+          <Property Name="TotalExecutionTime" Type="int" />
+          <Property Name="FinalScore" Type="bigint" />
+          <Property Name="ExecutionDetails" Type="text" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="IsTest" Type="bit" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry_Result">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="codechallenge_entry_id" Type="int" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="error" Type="text" />
+          <Property Name="successful" Type="bit" Nullable="false" />
+          <Property Name="result_message" Type="text" Nullable="false" />
+          <Property Name="score" Type="int" Nullable="false" />
+          <Property Name="author_note" Type="text" />
+          <Property Name="cpu_cycles" Type="numeric" Precision="21" />
+          <Property Name="test_result_data" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Sponsor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Description" Type="text" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OmahaMTGDev.dbo.vw_codechallenge_entry_challenge_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_codechallenge_entry_challenge_user">
+          <Key>
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="MaximumRunningSeconds" />
+            <PropertyRef Name="MaximumMemoryUsageBytes" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="CodeChallenge_Id" />
+            <PropertyRef Name="AuthorUserId" />
+            <PropertyRef Name="AssemblyFullName" />
+            <PropertyRef Name="DateAdded" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="TypeName" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="ChallengeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Instructions" Type="ntext" />
+          <Property Name="MaximumRunningSeconds" Type="int" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="numeric" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="CodeChallenge_Id" Type="int" Nullable="false" />
+          <Property Name="AuthorUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="DateAdded" Type="datetime2" Nullable="false" />
+          <Property Name="DateRan" Type="datetime2" />
+          <Property Name="TotalExecutionTime" Type="int" />
+          <Property Name="FinalScore" Type="int" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="ExecutorAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="ExecutionCommonAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="DocumentationFilename" Type="varchar" MaxLength="128" />
+          <Property Name="SampleProjectFilename" Type="varchar" MaxLength="128" />
+          <Property Name="IsHidden" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OmahaMTGDev.dbo.vw_codechallenge_secure' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_codechallenge_secure">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="MaximumRunningSeconds" />
+            <PropertyRef Name="MaximumMemoryUsageBytes" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ChallengeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Instructions" Type="ntext" />
+          <Property Name="ExecutorAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="ExecutionCommonAssemblyFullName" Type="varchar" MaxLength="250" />
+          <Property Name="MaximumRunningSeconds" Type="int" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="numeric" Nullable="false" />
+          <Property Name="SampleProjectFilename" Type="varchar" MaxLength="128" />
+          <Property Name="DocumentationFilename" Type="varchar" MaxLength="128" />
+          <Property Name="SponsorName" Type="varchar" MaxLength="250" />
+          <Property Name="SponsorDescription" Type="text" />
+          <Property Name="SampleDownloads" Type="int" />
+          <Property Name="DocumentationDownloads" Type="int" />
+          <Property Name="IsHidden" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OmahaMTGDev.dbo.vwCodeChallengeEntryHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwCodeChallengeEntryHistory">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="DateAdded" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ChallengeName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="DateAdded" Type="datetime2" Nullable="false" />
+          <Property Name="FinalScore" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CodeChallenge_CodeChallenge_Sponsor">
+          <End Role="CodeChallenge_Sponsor" Type="OmahaMTGDevModel.Store.CodeChallenge_Sponsor" Multiplicity="0..1" />
+          <End Role="CodeChallenge" Type="OmahaMTGDevModel.Store.CodeChallenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Sponsor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge">
+              <PropertyRef Name="CodeChallenge_Sponsor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge">
+          <End Role="CodeChallenge" Type="OmahaMTGDevModel.Store.CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_DeveloperAssembly" Type="OmahaMTGDevModel.Store.CodeChallenge_DeveloperAssembly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_DeveloperAssembly">
+              <PropertyRef Name="codechallenge_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_Entry_CodeChallenge">
+          <End Role="CodeChallenge" Type="OmahaMTGDevModel.Store.CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry" Type="OmahaMTGDevModel.Store.CodeChallenge_Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry">
+              <PropertyRef Name="CodeChallenge_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+          <End Role="CodeChallenge_Entry" Type="OmahaMTGDevModel.Store.CodeChallenge_Entry" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry_Result" Type="OmahaMTGDevModel.Store.CodeChallenge_Entry_Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Entry">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry_Result">
+              <PropertyRef Name="codechallenge_entry_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OmahaMTGDevModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CodeChallengeEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="CodeChallenges" EntityType="OmahaMTGDevModel.CodeChallenge" />
+          <EntitySet Name="CodeChallenge_Announcement" EntityType="OmahaMTGDevModel.CodeChallenge_Announcement" />
+          <EntitySet Name="CodeChallenge_Assembly" EntityType="OmahaMTGDevModel.CodeChallenge_Assembly" />
+          <EntitySet Name="CodeChallenge_Config" EntityType="OmahaMTGDevModel.CodeChallenge_Config" />
+          <EntitySet Name="CodeChallenge_DeveloperAssembly" EntityType="OmahaMTGDevModel.CodeChallenge_DeveloperAssembly" />
+          <EntitySet Name="CodeChallenge_Entry" EntityType="OmahaMTGDevModel.CodeChallenge_Entry" />
+          <EntitySet Name="CodeChallenge_Entry_Result" EntityType="OmahaMTGDevModel.CodeChallenge_Entry_Result" />
+          <EntitySet Name="CodeChallenge_Sponsor" EntityType="OmahaMTGDevModel.CodeChallenge_Sponsor" />
+          <AssociationSet Name="FK_CodeChallenge_CodeChallenge_Sponsor" Association="OmahaMTGDevModel.FK_CodeChallenge_CodeChallenge_Sponsor">
+            <End Role="CodeChallenge_Sponsor" EntitySet="CodeChallenge_Sponsor" />
+            <End Role="CodeChallenge" EntitySet="CodeChallenges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge" Association="OmahaMTGDevModel.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge">
+            <End Role="CodeChallenge" EntitySet="CodeChallenges" />
+            <End Role="CodeChallenge_DeveloperAssembly" EntitySet="CodeChallenge_DeveloperAssembly" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_Entry_CodeChallenge" Association="OmahaMTGDevModel.FK_CodeChallenge_Entry_CodeChallenge">
+            <End Role="CodeChallenge" EntitySet="CodeChallenges" />
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" Association="OmahaMTGDevModel.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+            <End Role="CodeChallenge_Entry" EntitySet="CodeChallenge_Entry" />
+            <End Role="CodeChallenge_Entry_Result" EntitySet="CodeChallenge_Entry_Result" />
+          </AssociationSet>
+          <EntitySet Name="vw_codechallenge_entry_challenge_user" EntityType="OmahaMTGDevModel.vw_codechallenge_entry_challenge_user" />
+          <EntitySet Name="vw_codechallenge_secure" EntityType="OmahaMTGDevModel.vw_codechallenge_secure" />
+          <EntitySet Name="vwCodeChallengeEntryHistories" EntityType="OmahaMTGDevModel.vwCodeChallengeEntryHistory" />
+        </EntityContainer>
+        <EntityType Name="CodeChallenge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="ChallengeName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SampleProjectFilename" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="SampleProject" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DocumentationFilename" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Documentation" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Instructions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ExecutorAssembly" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ExecutorAssemblyFullName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ExecutionCommonAssembly" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ExecutionCommonAssemblyFullName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="MaximumRunningSeconds" Type="Int32" Nullable="false" />
+          <Property Name="MaximumMemoryUsageBytes" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CodeChallenge_Sponsor_id" Type="Int32" />
+          <Property Name="SampleDownloads" Type="Int32" />
+          <Property Name="DocumentationDownloads" Type="Int32" />
+          <Property Name="IsHidden" Type="Boolean" />
+          <Property Name="TotalEntries" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CodeChallenge_Sponsor" Relationship="OmahaMTGDevModel.FK_CodeChallenge_CodeChallenge_Sponsor" FromRole="CodeChallenge" ToRole="CodeChallenge_Sponsor" />
+          <NavigationProperty Name="CodeChallenge_DeveloperAssembly" Relationship="OmahaMTGDevModel.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge" FromRole="CodeChallenge" ToRole="CodeChallenge_DeveloperAssembly" />
+          <NavigationProperty Name="CodeChallenge_Entry" Relationship="OmahaMTGDevModel.FK_CodeChallenge_Entry_CodeChallenge" FromRole="CodeChallenge" ToRole="CodeChallenge_Entry" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="PostingDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="AnnouncementHtml" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Assembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="assembly" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="AssemblyFullName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Trusted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="LastServiceHeartbeat" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_DeveloperAssembly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="codechallenge_id" Type="Int32" Nullable="false" />
+          <Property Name="assembly_fullname" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="assembly" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="NumberOfDownloads" Type="Int32" />
+          <NavigationProperty Name="CodeChallenge" Relationship="OmahaMTGDevModel.FK_CodeChallenge_DeveloperAssemblies_CodeChallenge" FromRole="CodeChallenge_DeveloperAssembly" ToRole="CodeChallenge" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="CodeChallenge_Id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorUserId" Type="Guid" Nullable="false" />
+          <Property Name="AssemblyFullName" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Submission" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="DateRan" Type="DateTime" Precision="7" />
+          <Property Name="TotalExecutionTime" Type="Int32" />
+          <Property Name="FinalScore" Type="Int64" />
+          <Property Name="ExecutionDetails" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IsTest" Type="Boolean" />
+          <NavigationProperty Name="CodeChallenge" Relationship="OmahaMTGDevModel.FK_CodeChallenge_Entry_CodeChallenge" FromRole="CodeChallenge_Entry" ToRole="CodeChallenge" />
+          <NavigationProperty Name="CodeChallenge_Entry_Result" Relationship="OmahaMTGDevModel.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" FromRole="CodeChallenge_Entry" ToRole="CodeChallenge_Entry_Result" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Entry_Result">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="codechallenge_entry_id" Type="Int32" Nullable="false" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="error" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="successful" Type="Boolean" Nullable="false" />
+          <Property Name="result_message" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="score" Type="Int32" Nullable="false" />
+          <Property Name="author_note" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="cpu_cycles" Type="Decimal" Precision="21" Scale="0" />
+          <Property Name="test_result_data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CodeChallenge_Entry" Relationship="OmahaMTGDevModel.FK_CodeChallenge_Entry_Result_CodeChallenge_Entry" FromRole="CodeChallenge_Entry_Result" ToRole="CodeChallenge_Entry" />
+        </EntityType>
+        <EntityType Name="CodeChallenge_Sponsor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CodeChallenges" Relationship="OmahaMTGDevModel.FK_CodeChallenge_CodeChallenge_Sponsor" FromRole="CodeChallenge_Sponsor" ToRole="CodeChallenge" />
+        </EntityType>
+        <Association Name="FK_CodeChallenge_CodeChallenge_Sponsor">
+          <End Role="CodeChallenge_Sponsor" Type="OmahaMTGDevModel.CodeChallenge_Sponsor" Multiplicity="0..1" />
+          <End Role="CodeChallenge" Type="OmahaMTGDevModel.CodeChallenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Sponsor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge">
+              <PropertyRef Name="CodeChallenge_Sponsor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_DeveloperAssemblies_CodeChallenge">
+          <End Role="CodeChallenge" Type="OmahaMTGDevModel.CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_DeveloperAssembly" Type="OmahaMTGDevModel.CodeChallenge_DeveloperAssembly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_DeveloperAssembly">
+              <PropertyRef Name="codechallenge_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_Entry_CodeChallenge">
+          <End Role="CodeChallenge" Type="OmahaMTGDevModel.CodeChallenge" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry" Type="OmahaMTGDevModel.CodeChallenge_Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry">
+              <PropertyRef Name="CodeChallenge_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodeChallenge_Entry_Result_CodeChallenge_Entry">
+          <End Role="CodeChallenge_Entry" Type="OmahaMTGDevModel.CodeChallenge_Entry" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CodeChallenge_Entry_Result" Type="OmahaMTGDevModel.CodeChallenge_Entry_Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeChallenge_Entry">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CodeChallenge_Entry_Result">
+              <PropertyRef Name="codechallenge_entry_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vw_codechallenge_entry_challenge_user">
+          <Key>
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="MaximumRunningSeconds" />
+            <PropertyRef Name="MaximumMemoryUsageBytes" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="CodeChallenge_Id" />
+            <PropertyRef Name="AuthorUserId" />
+            <PropertyRef Name="AssemblyFullName" />
+            <PropertyRef Name="DateAdded" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="TypeName" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Type="String" Name="ChallengeName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Instructions" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="MaximumRunningSeconds" Nullable="false" />
+          <Property Type="Decimal" Name="MaximumMemoryUsageBytes" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="CodeChallenge_Id" Nullable="false" />
+          <Property Type="Guid" Name="AuthorUserId" Nullable="false" />
+          <Property Type="String" Name="AssemblyFullName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateAdded" Nullable="false" Precision="7" />
+          <Property Type="DateTime" Name="DateRan" Precision="7" />
+          <Property Type="Int32" Name="TotalExecutionTime" />
+          <Property Type="Int32" Name="FinalScore" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExecutorAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExecutionCommonAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Expr1" Nullable="false" />
+          <Property Type="String" Name="DocumentationFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SampleProjectFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsHidden" />
+        </EntityType>
+        <EntityType Name="vw_codechallenge_secure">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="MaximumRunningSeconds" />
+            <PropertyRef Name="MaximumMemoryUsageBytes" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="ChallengeName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Instructions" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExecutorAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExecutionCommonAssemblyFullName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MaximumRunningSeconds" Nullable="false" />
+          <Property Type="Decimal" Name="MaximumMemoryUsageBytes" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="SampleProjectFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DocumentationFilename" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SponsorName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SponsorDescription" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SampleDownloads" />
+          <Property Type="Int32" Name="DocumentationDownloads" />
+          <Property Type="Boolean" Name="IsHidden" />
+        </EntityType>
+        <EntityType Name="vwCodeChallengeEntryHistory">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ChallengeName" />
+            <PropertyRef Name="DateAdded" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ChallengeName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateAdded" Nullable="false" Precision="7" />
+          <Property Type="Int32" Name="FinalScore" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OmahaMTGDevModelStoreContainer" CdmEntityContainer="CodeChallengeEntities">
+          <EntitySetMapping Name="CodeChallenges">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge">
+              <MappingFragment StoreEntitySet="CodeChallenge">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ChallengeName" ColumnName="ChallengeName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="SampleProjectFilename" ColumnName="SampleProjectFilename" />
+                <ScalarProperty Name="SampleProject" ColumnName="SampleProject" />
+                <ScalarProperty Name="DocumentationFilename" ColumnName="DocumentationFilename" />
+                <ScalarProperty Name="Documentation" ColumnName="Documentation" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="ExecutorAssembly" ColumnName="ExecutorAssembly" />
+                <ScalarProperty Name="ExecutorAssemblyFullName" ColumnName="ExecutorAssemblyFullName" />
+                <ScalarProperty Name="ExecutionCommonAssembly" ColumnName="ExecutionCommonAssembly" />
+                <ScalarProperty Name="ExecutionCommonAssemblyFullName" ColumnName="ExecutionCommonAssemblyFullName" />
+                <ScalarProperty Name="MaximumRunningSeconds" ColumnName="MaximumRunningSeconds" />
+                <ScalarProperty Name="MaximumMemoryUsageBytes" ColumnName="MaximumMemoryUsageBytes" />
+                <ScalarProperty Name="CodeChallenge_Sponsor_id" ColumnName="CodeChallenge_Sponsor_id" />
+                <ScalarProperty Name="SampleDownloads" ColumnName="SampleDownloads" />
+                <ScalarProperty Name="DocumentationDownloads" ColumnName="DocumentationDownloads" />
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+                <ScalarProperty Name="TotalEntries" ColumnName="TotalEntries" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Announcement">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge_Announcement">
+              <MappingFragment StoreEntitySet="CodeChallenge_Announcement">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+                <ScalarProperty Name="AnnouncementHtml" ColumnName="AnnouncementHtml" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Assembly">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge_Assembly">
+              <MappingFragment StoreEntitySet="CodeChallenge_Assembly">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="assembly" ColumnName="assembly" />
+                <ScalarProperty Name="AssemblyFullName" ColumnName="AssemblyFullName" />
+                <ScalarProperty Name="Trusted" ColumnName="Trusted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Config">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge_Config">
+              <MappingFragment StoreEntitySet="CodeChallenge_Config">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="LastServiceHeartbeat" ColumnName="LastServiceHeartbeat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_DeveloperAssembly">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge_DeveloperAssembly">
+              <MappingFragment StoreEntitySet="CodeChallenge_DeveloperAssembly">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codechallenge_id" ColumnName="codechallenge_id" />
+                <ScalarProperty Name="assembly_fullname" ColumnName="assembly_fullname" />
+                <ScalarProperty Name="assembly" ColumnName="assembly" />
+                <ScalarProperty Name="NumberOfDownloads" ColumnName="NumberOfDownloads" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Entry">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge_Entry">
+              <MappingFragment StoreEntitySet="CodeChallenge_Entry">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CodeChallenge_Id" ColumnName="CodeChallenge_Id" />
+                <ScalarProperty Name="AuthorUserId" ColumnName="AuthorUserId" />
+                <ScalarProperty Name="AssemblyFullName" ColumnName="AssemblyFullName" />
+                <ScalarProperty Name="Submission" ColumnName="Submission" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateRan" ColumnName="DateRan" />
+                <ScalarProperty Name="TotalExecutionTime" ColumnName="TotalExecutionTime" />
+                <ScalarProperty Name="FinalScore" ColumnName="FinalScore" />
+                <ScalarProperty Name="ExecutionDetails" ColumnName="ExecutionDetails" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsTest" ColumnName="IsTest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Entry_Result">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge_Entry_Result">
+              <MappingFragment StoreEntitySet="CodeChallenge_Entry_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codechallenge_entry_id" ColumnName="codechallenge_entry_id" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="error" ColumnName="error" />
+                <ScalarProperty Name="successful" ColumnName="successful" />
+                <ScalarProperty Name="result_message" ColumnName="result_message" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="author_note" ColumnName="author_note" />
+                <ScalarProperty Name="cpu_cycles" ColumnName="cpu_cycles" />
+                <ScalarProperty Name="test_result_data" ColumnName="test_result_data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeChallenge_Sponsor">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.CodeChallenge_Sponsor">
+              <MappingFragment StoreEntitySet="CodeChallenge_Sponsor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_codechallenge_entry_challenge_user">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.vw_codechallenge_entry_challenge_user">
+              <MappingFragment StoreEntitySet="vw_codechallenge_entry_challenge_user">
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+                <ScalarProperty Name="SampleProjectFilename" ColumnName="SampleProjectFilename" />
+                <ScalarProperty Name="DocumentationFilename" ColumnName="DocumentationFilename" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="ExecutionCommonAssemblyFullName" ColumnName="ExecutionCommonAssemblyFullName" />
+                <ScalarProperty Name="ExecutorAssemblyFullName" ColumnName="ExecutorAssemblyFullName" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FinalScore" ColumnName="FinalScore" />
+                <ScalarProperty Name="TotalExecutionTime" ColumnName="TotalExecutionTime" />
+                <ScalarProperty Name="DateRan" ColumnName="DateRan" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="AssemblyFullName" ColumnName="AssemblyFullName" />
+                <ScalarProperty Name="AuthorUserId" ColumnName="AuthorUserId" />
+                <ScalarProperty Name="CodeChallenge_Id" ColumnName="CodeChallenge_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaximumMemoryUsageBytes" ColumnName="MaximumMemoryUsageBytes" />
+                <ScalarProperty Name="MaximumRunningSeconds" ColumnName="MaximumRunningSeconds" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ChallengeName" ColumnName="ChallengeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_codechallenge_secure">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.vw_codechallenge_secure">
+              <MappingFragment StoreEntitySet="vw_codechallenge_secure">
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+                <ScalarProperty Name="DocumentationDownloads" ColumnName="DocumentationDownloads" />
+                <ScalarProperty Name="SampleDownloads" ColumnName="SampleDownloads" />
+                <ScalarProperty Name="SponsorDescription" ColumnName="SponsorDescription" />
+                <ScalarProperty Name="SponsorName" ColumnName="SponsorName" />
+                <ScalarProperty Name="DocumentationFilename" ColumnName="DocumentationFilename" />
+                <ScalarProperty Name="SampleProjectFilename" ColumnName="SampleProjectFilename" />
+                <ScalarProperty Name="MaximumMemoryUsageBytes" ColumnName="MaximumMemoryUsageBytes" />
+                <ScalarProperty Name="MaximumRunningSeconds" ColumnName="MaximumRunningSeconds" />
+                <ScalarProperty Name="ExecutionCommonAssemblyFullName" ColumnName="ExecutionCommonAssemblyFullName" />
+                <ScalarProperty Name="ExecutorAssemblyFullName" ColumnName="ExecutorAssemblyFullName" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ChallengeName" ColumnName="ChallengeName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCodeChallengeEntryHistories">
+            <EntityTypeMapping TypeName="OmahaMTGDevModel.vwCodeChallengeEntryHistory">
+              <MappingFragment StoreEntitySet="vwCodeChallengeEntryHistory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FinalScore" ColumnName="FinalScore" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="ChallengeName" ColumnName="ChallengeName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>

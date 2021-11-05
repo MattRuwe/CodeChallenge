@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SilverlightUI" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SilverlightUI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.omahamtg.com/CodeChallenge/Services/SilverlightUI-CodeChallengeDomainService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ResultsListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeChallengeID" type="xs:int" />
+      <xs:element minOccurs="0" name="CodeChallengeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateRan" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExecutionDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinalScore" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Position" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalExecutionTime" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultsListing" nillable="true" type="tns:ResultsListing" />
+  <xs:complexType name="ResultDetailsListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthorNote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CpuCycles" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Duration" type="xs:int" />
+      <xs:element minOccurs="0" name="EntryID" type="xs:int" />
+      <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ResultMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Score" type="xs:int" />
+      <xs:element minOccurs="0" name="Successful" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultDetailsListing" nillable="true" type="tns:ResultDetailsListing" />
+  <xs:complexType name="EntryListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthorUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChallengeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EntryID" type="xs:int" />
+      <xs:element minOccurs="0" name="FinalScore" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntryListing" nillable="true" type="tns:EntryListing" />
+  <xs:complexType name="vw_codechallenge_secure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChallengeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentationFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExecutionCommonAssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExecutorAssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Instructions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaximumMemoryUsageBytes" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaximumRunningSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="SampleProjectFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SponsorDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SponsorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vw_codechallenge_secure" nillable="true" type="tns:vw_codechallenge_secure" />
+  <xs:complexType name="CodeChallenge_DeveloperAssembly">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="assembly" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="assembly_fullname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="codechallenge_id" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallenge_DeveloperAssembly" nillable="true" type="tns:CodeChallenge_DeveloperAssembly" />
+  <xs:complexType name="CodeChallenge_Entry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorUserId" type="ser:guid" />
+      <xs:element minOccurs="0" name="CodeChallenge_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateRan" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExecutionDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinalScore" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Submission" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="TotalExecutionTime" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallenge_Entry" nillable="true" type="tns:CodeChallenge_Entry" />
+  <xs:complexType name="CodeChallenge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChallengeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeChallenge_Sponsor_id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Documentation" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DocumentationFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExecutionCommonAssembly" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ExecutionCommonAssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExecutorAssembly" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ExecutorAssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Instructions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaximumMemoryUsageBytes" type="xs:long" />
+      <xs:element minOccurs="0" name="MaximumRunningSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="SampleProject" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="SampleProjectFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallenge" nillable="true" type="tns:CodeChallenge" />
+  <xs:complexType name="CodeChallenge_Sponsor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallenge_Sponsor" nillable="true" type="tns:CodeChallenge_Sponsor" />
+  <xs:complexType name="CodeChallenge_Entry_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="author_note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="codechallenge_entry_id" type="xs:int" />
+      <xs:element minOccurs="0" name="cpu_cycles" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="duration" type="xs:int" />
+      <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="result_message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="score" type="xs:int" />
+      <xs:element minOccurs="0" name="successful" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallenge_Entry_Result" nillable="true" type="tns:CodeChallenge_Entry_Result" />
+  <xs:complexType name="aspnet_Users">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsAnonymous" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastActivityDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LoweredUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileAlias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="aspnet_Users" nillable="true" type="tns:aspnet_Users" />
+  <xs:complexType name="CodeChallengeListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChallengeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallengeListing" nillable="true" type="tns:CodeChallengeListing" />
+  <xs:complexType name="CodeChallenge_Assembly">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trusted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="assembly" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallenge_Assembly" nillable="true" type="tns:CodeChallenge_Assembly" />
+  <xs:complexType name="vw_codechallenge_entry_challenge_user">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorUserId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ChallengeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeChallenge_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateRan" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentationFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExecutionCommonAssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExecutorAssemblyFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expr1" type="xs:int" />
+      <xs:element minOccurs="0" name="FinalScore" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Instructions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaximumMemoryUsageBytes" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaximumRunningSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="SampleProjectFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TotalExecutionTime" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vw_codechallenge_entry_challenge_user" nillable="true" type="tns:vw_codechallenge_entry_challenge_user" />
+  <xs:complexType name="CodeChallenge_Announcement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnnouncementHtml" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostingDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeChallenge_Announcement" nillable="true" type="tns:CodeChallenge_Announcement" />
+  <xs:complexType name="ArrayOfResultsListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResultsListing" nillable="true" type="tns:ResultsListing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResultsListing" nillable="true" type="tns:ArrayOfResultsListing" />
+  <xs:complexType name="ArrayOfEntryListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntryListing" nillable="true" type="tns:EntryListing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntryListing" nillable="true" type="tns:ArrayOfEntryListing" />
+  <xs:complexType name="ArrayOfvw_codechallenge_secure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vw_codechallenge_secure" nillable="true" type="tns:vw_codechallenge_secure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvw_codechallenge_secure" nillable="true" type="tns:ArrayOfvw_codechallenge_secure" />
+  <xs:complexType name="ArrayOfCodeChallengeListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallengeListing" nillable="true" type="tns:CodeChallengeListing" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallengeListing" nillable="true" type="tns:ArrayOfCodeChallengeListing" />
+  <xs:complexType name="ArrayOfCodeChallenge">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallenge" nillable="true" type="tns:CodeChallenge" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallenge" nillable="true" type="tns:ArrayOfCodeChallenge" />
+  <xs:complexType name="ArrayOfCodeChallenge_Assembly">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallenge_Assembly" nillable="true" type="tns:CodeChallenge_Assembly" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallenge_Assembly" nillable="true" type="tns:ArrayOfCodeChallenge_Assembly" />
+  <xs:complexType name="ArrayOfCodeChallenge_DeveloperAssembly">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallenge_DeveloperAssembly" nillable="true" type="tns:CodeChallenge_DeveloperAssembly" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallenge_DeveloperAssembly" nillable="true" type="tns:ArrayOfCodeChallenge_DeveloperAssembly" />
+  <xs:complexType name="ArrayOfvw_codechallenge_entry_challenge_user">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vw_codechallenge_entry_challenge_user" nillable="true" type="tns:vw_codechallenge_entry_challenge_user" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvw_codechallenge_entry_challenge_user" nillable="true" type="tns:ArrayOfvw_codechallenge_entry_challenge_user" />
+  <xs:complexType name="ArrayOfCodeChallenge_Entry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallenge_Entry" nillable="true" type="tns:CodeChallenge_Entry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallenge_Entry" nillable="true" type="tns:ArrayOfCodeChallenge_Entry" />
+  <xs:complexType name="ArrayOfCodeChallenge_Entry_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallenge_Entry_Result" nillable="true" type="tns:CodeChallenge_Entry_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallenge_Entry_Result" nillable="true" type="tns:ArrayOfCodeChallenge_Entry_Result" />
+  <xs:complexType name="ArrayOfCodeChallenge_Sponsor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallenge_Sponsor" nillable="true" type="tns:CodeChallenge_Sponsor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallenge_Sponsor" nillable="true" type="tns:ArrayOfCodeChallenge_Sponsor" />
+  <xs:complexType name="ArrayOfCodeChallenge_Announcement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeChallenge_Announcement" nillable="true" type="tns:CodeChallenge_Announcement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeChallenge_Announcement" nillable="true" type="tns:ArrayOfCodeChallenge_Announcement" />
+</xs:schema>

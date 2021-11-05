@@ -1,0 +1,120 @@
+﻿<navigation:Page 
+  x:Class="SilverlightUI.About" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="4096"  
+  Style="{StaticResource PageStyle}">
+
+    <Grid x:Name="LayoutRoot">
+        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Border Style="{StaticResource GroupBoxBorder}" Margin="12" >
+                    <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
+
+                        <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" 
+                           Text="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+                        <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" TextWrapping="Wrap">
+                            <Run>
+                                The OmahaMTG Code Challenge has been created and is managed by the Omaha .Net User Group.  The goal of this idea is to encourage an atmosphere of fun around the .Net framework
+                                and to provide a way for local .Net developers to engage one another in a challenging competition.  Use this site to look for challenges that you want to 
+                                solve, check results, see who is winning a particular challenge, or upload your own entry for the chance to win a prize.
+                                </Run>
+                        </TextBlock>
+
+                        <TextBlock Style="{StaticResource HeaderTextStyle}" Text="How does it work?"/>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}">
+                    <Run>
+                    To participate you should pick one of the challenges that seems interesting.  To view the available challenges, simply click on the Challenges tab on the web site.  Once you have selected a challenge, you will need to download a few items:</Run><LineBreak /><LineBreak /><Run>
+                    1) The challenge SDK documentation</Run><LineBreak /><Run>
+                    2) The challenge SDK assemblies</Run><LineBreak /><Run>
+                    3) The challenge Sample implementation (optional)</Run><LineBreak /><LineBreak /><Run>
+                    The challenge SDK documentation contains implementation information on how to create an entry for the specific challenge.  If there are supporting classes for the challenge
+                    these will be documented in this location as well.  To create an entry you will need to use any version of Visual Studio 2010 (including VS Express Edition) to implement an interface contained within the SDK assemblies.
+                    This interface will have at least one method to implement.  Let's use a trivial example challenge:  Adding two numbers together.  For this challenge, you would need to
+                    create a new</Run>&#160;<Bold>class library</Bold>&#160;<Run>project and reference the SDK assemblies.  One of those assemblies will contain an interface that you will implement.  This interface will
+                    take two integers as input and return a single integer value.  You can also download the challenge sample implementation which will contain an example project that is ready to submit.
+                        However, it should be noted that this project will not contain a solution to the problem, just an example project that can be submitted.</Run><LineBreak /><LineBreak /><Run>
+                        
+                        Once you've completed your entry, you need to use the Code Challenge web site to upload your entry for analysis.  To submit the entry you will need to
+                        login.  After logging in, click on the Home tab and then click on the "Add Entry" button, which will bring up a file dialog window.  Use this dialog to find your compiled assembly which implements the required interface.
+                        Once you have found the assembly, click the OK button to complete the process.
+                        </Run><LineBreak /><LineBreak /><Run>
+                        After this, your entry will be processed by the code challenge execution engine, which runs in a separate environment.  In this environment, your code will be executed in a low trust
+                        security context, meaning that your code will be unable to access any security sensitive functionality from the execution environment (e.g. file system, environment variables, reflection, and network access).  
+                        In addition to these limitations, your entry will have a limited amount of time to run and will only be allowed to use a certain amount of memory.  These parameters can be found on the Challenges 
+                        page.  Once the challenge has been processed, the results will be posted to the web site for you to view.  If you're not happy with the results, you can tweak your code and resubmit it as many times as you like.
+                        The leaderboard will only show one entry per user per challenge.  This entry will be the one with the highest score.  The latest entries area shows teh 5 most recently submitted challenge regardless of the score.
+                        You can choose to not show your entry on either the leaderboard or the latest entries by unchecking the "Publish entry" checkbox when submitting.
+</Run>
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource HeaderTextStyle}" Text="What if I have problems?"/>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}">
+                            If your entry does not complete and you are unable to determine the cause of the problem, the best way to troubleshoot the issue
+                            is to create a test harness that will execute your code on your local development machine.  The best way to accomplish this is to create a unit test that executes
+                            your entry.  Many of the sample projects contain ready to use unit tests in both VB and C#.  If you're still unable to determine why your entry will not work or if 
+                            the results of your entry state that you should contact the administrator, you can e-mail dotnet@omahamtg.com.  We can gather detailed error information about 
+                            the problem and relay that to you.  The primary reason this information is not available to all users is that it can lead to cheating.  
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}" FontWeight="bold" Margin="5,10,0,5">
+                            Tips for troubleshooting
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}" Margin="15, 3,0,3">
+                            1) Make sure that you have uploaded a class library as opposed to a console application or windows application.  The extension for the file that you upload needs to be .dll
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}" Margin="15, 3,0,3">
+                            2) The CPU architecture that you use when compiling your entry should be "Any CPU".
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}" Margin="15, 3,0,3">
+                            3) The "Target Framework" you use when compiling your entry should be ".Net Framework 4".  If you use any other framework, or the Client Profile target, your entry will fail.
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource HeaderTextStyle}" Text="I have an idea for a code challenge, can we implement it?"/>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}">
+                            Absolutely!  If you have an idea for a code challenge, please send an e-mail to dotnet@omahamtg.com.  We can either help you get started writing your own challenge,
+                            or we can take your idea and implement it ourselves (giving you credit for the concept, of course).
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource HeaderTextStyle}" Text="Application Architecture"/>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}">
+                            The code challenge application is completely custom written specifically for the OmahaMTG code challenge by Matt Ruwe.  The application consists of 3 major sections:
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}">
+                            <LineBreak />
+                            <Run>1) Silverlight 4.0 Application</Run><LineBreak />
+                            <Run>2) WCF RIA Services</Run><LineBreak />
+                            <Run>3) Code Challenge Execution Windows Service</Run><LineBreak />
+                            <LineBreak />
+                            <Run>The Silverlight 4.0 Application is what you are looking at right now.  It is simply a front-end that allows users to interact with the code challenge.  It provides the means to upload new entries,
+                            check the results of existing challenges, administer the code challenge settings, and other end-user functionality.</Run>
+                            <LineBreak /><LineBreak />
+                            <Run>The WCF RIA Services allow the front-end user application to interact with the database and provide an abstraction layer between the web tier and data tier.  The data tier is powered by the Entity
+                                Framework 4.0 which connects to a SQL Server 2008 database.</Run><LineBreak />
+                            <LineBreak />
+                            <Run>Finally, the Code Challenge Execution Windows Service runs on dedicated hardware (i.e. a server that only processes code challenge entries).  The purpose of this service is to execute user entries 
+                                as they are submitted.  The service is currently configured to check once every 15 seconds to ensure that the web site stays up-to-date.  Once the service has executed an entry within its security 
+                                sandbox, it writes the results back to the database where the web site picks up the details and shows them to the users.  This is by far the most complicated (and least visible) portion of the application.</Run>
+                            <LineBreak />
+                            <LineBreak />
+                            The high level architecture is illustrated in the following image:
+                            <LineBreak />
+                            <LineBreak />
+                        </TextBlock>
+                        <Image Source="/SilverlightUI;component/Assets/Images/AppArch.png" MaxWidth="540"/>
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource ContentTextStyle}">
+                        <LineBreak />
+                            <LineBreak />
+                            If you have any questions or suggestions on ways to improve this concept, please be sure to let us know!
+                        </TextBlock>
+                        <StackPanel HorizontalAlignment="Right" Margin="0,20,70,0">
+                            <Image Source="/SilverlightUI;component/Assets/Images/MattSig.png" HorizontalAlignment="Left" Width="150" />
+                            <TextBlock>Matt Ruwe</TextBlock>
+                            <TextBlock>.Net User Group Co-Leader</TextBlock>
+                            <TextBlock>mruwe@omahamtg.com</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</navigation:Page>
